@@ -743,3 +743,25 @@ tall), and integration into the main app (2026-10-05).
   "Gap noted: age and gender" above).
 - **Review the 28 new archetype baselines** (see To-dos). It's due now
   that the person view runs.
+
+## Deployment (2026-10-06)
+
+- **Live:** http://157.230.158.58:8001, open to anyone (no password).
+- **Droplet:** the same DigitalOcean droplet as other projects. Each
+  project there runs its own small server on its own port under pm2; there
+  is no shared web server. This one: folder `/root/ice/`, pm2 process
+  `ice`, port 8001, started as `pm2 start serve.py --name ice --interpreter
+  python3 -- 8001`. `pm2 save` has been run, so it restarts after a reboot.
+  The firewall (UFW) allows 8001/tcp; nothing else on the droplet was
+  changed.
+- **Redeploy:** `./dropit` at the project root (local only, gitignored,
+  since it holds the droplet's address and login). It copies `app/` to
+  `/root/ice/` without the tests, removes files deleted locally, and
+  restarts only the `ice` process. It needs the SSH key loaded first
+  (`ssh-add --apple-use-keychain ~/.ssh/id_ed25519`).
+- **What is served:** `app/` only. Nothing is stored on the server: each
+  visitor's scenarios stay in their own browser. The person view loads
+  three.js from its CDN.
+- **Source:** https://github.com/damg70/ice-detention-architecture-under-load
+  (public). Review notes, sketches and `dropit` are kept local and
+  gitignored.
