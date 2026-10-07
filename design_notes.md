@@ -744,6 +744,19 @@ tall), and integration into the main app (2026-10-05).
 - **Review the 28 new archetype baselines** (see To-dos). It's due now
   that the person view runs.
 
+## Landing page (built 2026-10-06)
+
+The site opens on `index.html`, a short reading page, instead of the grid.
+The model moved to `model.html`; its title and an About link lead back.
+Sections: the question and the summary's opening lines; what this is (and
+isn't); four ways to look (one sentence per view); the idea (support as a
+moving margin, with a small chalkboard demand curve); where the numbers
+come from (an invitation to change them); start with a building (six
+archetype buttons, `model.html#start/<archetype>`, which open that
+archetype in the grid); credits (no repository link). Text is the
+summary's, shortened in the same voice. The summary PDF is served from
+`app/docs/`.
+
 ## Deployment (2026-10-06)
 
 - **Live:** http://157.230.158.58:8001, open to anyone (no password).

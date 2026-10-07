@@ -11,7 +11,8 @@ open questions live in `../design_notes.md`.
 cd app && python3 serve.py
 ```
 
-Open <http://localhost:5173>. It needs a local server because ES modules
+Open <http://localhost:5173>: the landing page (`index.html`), which leads into
+the model (`model.html`). It needs a local server because ES modules
 and JSON `fetch` don't load from `file://`. `serve.py` is `http.server`
 with caching turned off, so browsers (Safari especially) always load the
 latest data and code.
@@ -84,7 +85,8 @@ the browser and in the tests.
 | Grid                                                     | `src/ui/grid.js` |
 | Network reading (nodes, edges, domain status)            | `src/model/network.js` |
 | Network drawing, node panel                              | `src/ui/networkView.js`, `src/ui/nodePanel.js` |
-| Views, routing, header, scenarios                        | `src/main.js`, `index.html` |
+| Views, routing, header, scenarios                        | `src/main.js`, `model.html` |
+| Landing page (and the summary PDF it links)              | `index.html`, `landing.css`, `docs/` |
 | Colors                                                   | `src/ui/colorScale.js` |
 | Scenario schema, import/export, storage                  | `src/storage/` |
 | Person view: rings, home rings, lighting tables          | `src/data/person-config.json` |

@@ -168,6 +168,7 @@ function loadPreset(id) {
     update();
     persist();
   } else {
+    fresh.name = uniqueName(fresh.name);
     addScenario(fresh);
     setStatus(`Opened as a new scenario; “${s.name}” is kept in the Scenario menu`);
   }
@@ -529,6 +530,12 @@ function update() {
 }
 
 setView(view, { push: false });
+// From the landing page: #start/<archetype> opens that archetype in the grid.
+const start = /^#start\/(\w+)$/.exec(location.hash);
+if (start && presetById.has(start[1]) && start[1] !== 'blank') {
+  history.replaceState(null, '', location.pathname + location.search);
+  loadPreset(start[1]);
+}
 if (personHash(location.hash)) openPerson(personHash(location.hash));
 if (equationHash(location.hash)) openEquation(equationHash(location.hash));
 setTimeout(() => views.classList.remove('instant'), 50);

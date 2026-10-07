@@ -3,105 +3,83 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Architecture Under Load</title>
+  <title>ICE Detention Architecture Under Load</title>
+  <meta name="description" content="An interactive model of how immigration-detention architecture responds as stays get longer and more people are held inside.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="person.css">
-  <link rel="stylesheet" href="equation.css">
-  <script type="importmap">
-  { "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
-  } }
-  </script>
+  <link rel="stylesheet" href="landing.css">
 </head>
-<body>
-  <header class="masthead">
-    <div class="appbar">
-      <h1>Architecture Under Load</h1>
-      <div id="app-menu" class="app-menu"></div>
-      <span id="status" class="status" role="status"></span>
-    </div>
-    <div class="titlebar">
-      <h2 class="scenario-title">
-        <input type="text" id="scenario-name" aria-label="Scenario name" maxlength="120" spellcheck="false">
-      </h2>
-      <div class="toolbar">
-        <select id="archetype-select" aria-label="Archetype"></select>
-        <div class="view-switch segmented" role="tablist" aria-label="View">
-          <button type="button" role="tab" id="tab-grid" aria-controls="view-grid" data-view="grid">Grid</button>
-          <button type="button" role="tab" id="tab-network" aria-controls="view-network" data-view="network">Network</button>
-          <button type="button" role="tab" id="tab-person" aria-controls="view-person" data-view="person" hidden>Person</button>
-          <button type="button" role="tab" id="tab-equation" aria-controls="view-equation" data-view="equation" hidden>Equation</button>
-        </div>
+<body class="landing">
+  <main class="lp">
+    <header class="lp-hero">
+      <p class="lp-eyebrow">ICE Detention Architecture Under Load</p>
+      <h1>How does a building that holds people respond as stays get longer and more people are held inside?</h1>
+      <p class="lp-lede">A holding room built for an afternoon is a different place after three days. A housing unit built for sixty is a different place with a hundred and ten.</p>
+      <p>This is an interactive model of immigration detention interiors. Choose a kind of facility, say how well its architecture supports daily life, then push on it with longer stays and more people. Watch where support holds, where it thins, and where it gives way.</p>
+      <div class="lp-actions">
+        <a class="lp-button primary" href="model.html">Open the model</a>
+        <a class="lp-button" href="docs/ICE_Detention_Architecture_Under_Load_Project_Summary.pdf">Read the project summary (PDF)</a>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <section class="stress-band" aria-label="Stress controls">
-    <div id="stress" class="stress"></div>
-    <div class="ramp-band" aria-hidden="true">
-      <div class="legend-ramp"></div>
-      <div class="legend-ends">
-        <span>−− severe strain</span><span>− substantial</span><span>~ just adequate</span><span>+ supportive</span><span>++ resilient margin</span>
+    <section class="lp-section">
+      <h2>What this is</h2>
+      <p>An imaginative instrument built from abstract types of facility. It is not a map, a rating, or a judgment of any real facility, and it makes no predictions. It can show architecture holding up as well as failing.</p>
+    </section>
+
+    <section class="lp-section">
+      <h2>Four ways to look</h2>
+      <dl class="lp-views">
+        <div><dt>Grid</dt><dd>Thirteen architectural capacities against ten parts of daily life. Each cell asks a question, and you answer it with a baseline from 0 to 4.</dd></div>
+        <div><dt>Network</dt><dd>The same scenario as a web, showing which parts of life depend on a single capacity.</dd></div>
+        <div><dt>Person</dt><dd>One faceless figure in a half-cut room, through a representative day, thinking short first-person thoughts.</dd></div>
+        <div><dt>Equation</dt><dd>The math for one cell, worked out in full, with every number explained.</dd></div>
+      </dl>
+    </section>
+
+    <section class="lp-section lp-idea">
+      <div>
+        <h2>The idea</h2>
+        <p>Support is not a fixed property of a building. It is a margin between what the building supplies and what the people inside need, and that margin moves. Demand rises with time and crowding and levels off below a ceiling. Where it passes a cell's support, the cell turns to strain. The building has not changed, only the demand placed on it.</p>
       </div>
-    </div>
-  </section>
+      <figure class="lp-chalk" aria-label="Demand rises with load and levels off below a ceiling, passing a building's support line.">
+        <svg viewBox="0 0 310 160" width="100%" role="img">
+          <line x1="30" y1="130" x2="292" y2="130" stroke="#8fa596"/>
+          <line x1="30" y1="130" x2="30" y2="12" stroke="#8fa596"/>
+          <line x1="30" y1="20" x2="290" y2="20" stroke="#a9cbe6" stroke-dasharray="4 4"/>
+          <text x="290" y="15" fill="#a9cbe6" font-size="10" text-anchor="end">ceiling</text>
+          <line x1="30" y1="82.2" x2="290" y2="82.2" stroke="#efc06a" stroke-width="1.6"/>
+          <text x="288" y="96" fill="#efc06a" font-size="10" text-anchor="end">what the building supplies</text>
+          <path fill="none" stroke="#f1efe6" stroke-width="2.2" stroke-linecap="round" d="M30.0,130.0 L36.5,124.6 L43.0,119.5 L49.5,114.7 L56.0,110.1 L62.5,105.7 L69.0,101.5 L75.5,97.5 L82.0,93.7 L88.5,90.1 L95.0,86.7 L101.5,83.5 L108.0,80.4 L114.5,77.4 L121.0,74.6 L127.5,72.0 L134.0,69.4 L140.5,67.0 L147.0,64.7 L153.5,62.5 L160.0,60.5 L166.5,58.5 L173.0,56.6 L179.5,54.8 L186.0,53.1 L192.5,51.5 L199.0,50.0 L205.5,48.5 L212.0,47.1 L218.5,45.8 L225.0,44.5 L231.5,43.3 L238.0,42.2 L244.5,41.1 L251.0,40.1 L257.5,39.1 L264.0,38.2 L270.5,37.3 L277.0,36.5 L283.5,35.7 L290.0,34.9"/>
+          <line x1="206.8" y1="48.7" x2="206.8" y2="82.2" stroke="#e07a62" stroke-width="3.5"/>
+          <circle cx="206.8" cy="48.7" r="5" fill="#c4553b" stroke="#f1efe6" stroke-width="1.5"/>
+          <text x="198" y="40" fill="#f1efe6" font-size="10" text-anchor="end">what the people inside need</text>
+          <text x="200" y="70" fill="#f0a08c" font-size="10" text-anchor="end">strain</text>
+          <text x="160" y="148" fill="#a7b5a9" font-size="10" text-anchor="middle">longer stays, more people →</text>
+        </svg>
+      </figure>
+    </section>
 
-  <main class="workspace">
-    <div class="field">
-      <div class="views instant" id="views" data-view="grid">
-        <section class="view" id="view-grid" role="tabpanel" aria-labelledby="tab-grid">
-          <div id="grid" class="grid-wrap"></div>
-          <p class="kbd-hint">Click a cell to select it; click again to step its baseline. Keys: <kbd>0</kbd>–<kbd>4</kbd> set the baseline, <kbd>⌫</kbd> unmark, <kbd>space</kbd> step, <kbd>← ↑ → ↓</kbd> move.</p>
-          <div id="grid-legend-slot" class="legend-slot"></div>
-        </section>
-        <section class="view" id="view-network" role="tabpanel" aria-labelledby="tab-network">
-          <div id="network" class="network-wrap"></div>
-        </section>
-        <section class="view" id="view-person" role="tabpanel" aria-labelledby="tab-person">
-          <div id="person-view" class="person person-view"></div>
-        </section>
-        <section class="view" id="view-equation" role="tabpanel" aria-labelledby="tab-equation">
-          <div id="equation-view" class="equation"></div>
-        </section>
-      </div>
-    </div>
+    <section class="lp-section">
+      <h2>Where the numbers come from</h2>
+      <p>None of them were measured. They were reached by interpreting reporting and inspection records (interviews, site visits, oversight findings, agency standards) and written down precisely so they can be argued with. If you know a building type better than we do, change the numbers.</p>
+    </section>
 
-    <aside class="side">
-      <section id="person-panel" class="panel inspector" hidden></section>
-      <section id="equation-panel" class="equation-panel" hidden></section>
-      <section id="node-panel" class="panel inspector" aria-live="polite" hidden></section>
-      <section id="inspector" class="panel inspector" aria-live="polite"></section>
-      <section id="legend-panel" class="panel legend-panel" aria-label="Legend">
-        <h2 class="panel-title">Legend</h2>
-        <ul class="legend-states" data-for="grid">
-          <li><span class="cell-sample marked"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span> Marked: pips show the baseline (0–4); fill shows state under current load</li>
-          <li><span class="cell-sample unmarked"></span> Applicable, unmarked</li>
-          <li><span class="cell-sample na"></span> Not applicable</li>
-          <li><span class="cell-sample unmarked provisional"></span> Provisional sensitivities</li>
-        </ul>
-        <ul class="legend-states" data-for="network">
-          <li><svg class="legend-line" viewBox="0 0 44 14" aria-hidden="true"><path d="M2 7 H42" stroke-width="1.5"/></svg><svg class="legend-line" viewBox="0 0 44 14" aria-hidden="true"><path d="M2 7 H42" stroke-width="7.5"/></svg> Line thickness: baseline 0 → 4</li>
-          <li><svg class="legend-line" viewBox="0 0 44 14" aria-hidden="true"><path d="M2 7 H42" stroke-width="4" stroke-dasharray="6 4"/></svg> Provisional sensitivities</li>
-          <li><svg class="legend-node unsupported" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg> Hollow domain: none of its features supportive</li>
-        </ul>
-        <ul class="legend-states" data-for="person">
-          <li>Ring color and height: the average state of its features under the current load</li>
-          <li>White rim: this capacity’s ring</li>
-          <li>Figure color: this capacity’s least-supported feature</li>
-        </ul>
-        <div class="options">
-          <label><input type="checkbox" id="opt-values"> Show values</label>
-          <label><input type="checkbox" id="opt-palette"> Colorblind-safe palette</label>
-        </div>
-      </section>
-      <section id="scenario-note" class="panel" hidden></section>
-    </aside>
+    <section class="lp-section">
+      <h2>Start with a building</h2>
+      <ul class="lp-archetypes">
+        <li><a href="model.html#start/short_term_holding"><b>Short-term holding space</b><span>A processing room planned for hours.</span></a></li>
+        <li><a href="model.html#start/purpose_built"><b>Purpose-built detention</b><span>Housing pods planned for weeks or months.</span></a></li>
+        <li><a href="model.html#start/county_jail"><b>County jail</b><span>A local jail holding detainees under contract.</span></a></li>
+        <li><a href="model.html#start/converted_prison"><b>Converted prison</b><span>Cells, controlled movement, a secure perimeter.</span></a></li>
+        <li><a href="model.html#start/soft_sided_camp"><b>Soft-sided camp</b><span>Large fabric structures, set up fast.</span></a></li>
+        <li><a href="model.html#start/family_residential"><b>Family residential campus</b><span>Small buildings in a domestic vocabulary.</span></a></li>
+      </ul>
+    </section>
+
+    <footer class="lp-credits">By Dr. David A.M. Goldberg, with Claude (Anthropic). October 2026.</footer>
   </main>
-
-  <script type="module" src="src/main.js"></script>
 </body>
 </html>
