@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Architecture Under Load</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="person.css">
+  <link rel="stylesheet" href="equation.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="appbar">
+      <h1>Architecture Under Load</h1>
+      <div id="app-menu" class="app-menu"></div>
+      <span id="status" class="status" role="status"></span>
+    </div>
+    <div class="titlebar">
+      <h2 class="scenario-title">
+        <input type="text" id="scenario-name" aria-label="Scenario name" maxlength="120" spellcheck="false">
+      </h2>
+      <div class="toolbar">
+        <select id="archetype-select" aria-label="Archetype"></select>
+        <div class="view-switch segmented" role="tablist" aria-label="View">
+          <button type="button" role="tab" id="tab-grid" aria-controls="view-grid" data-view="grid">Grid</button>
+          <button type="button" role="tab" id="tab-network" aria-controls="view-network" data-view="network">Network</button>
+          <button type="button" role="tab" id="tab-person" aria-controls="view-person" data-view="person" hidden>Person</button>
+          <button type="button" role="tab" id="tab-equation" aria-controls="view-equation" data-view="equation" hidden>Equation</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="stress-band" aria-label="Stress controls">
+    <div id="stress" class="stress"></div>
+    <div class="ramp-band" aria-hidden="true">
+      <div class="legend-ramp"></div>
+      <div class="legend-ends">
+        <span>−− severe strain</span><span>− substantial</span><span>~ just adequate</span><span>+ supportive</span><span>++ resilient margin</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="workspace">
+    <div class="field">
+      <div class="views instant" id="views" data-view="grid">
+        <section class="view" id="view-grid" role="tabpanel" aria-labelledby="tab-grid">
+          <div id="grid" class="grid-wrap"></div>
+          <p class="kbd-hint">Click a cell to select it; click again to step its baseline. Keys: <kbd>0</kbd>–<kbd>4</kbd> set the baseline, <kbd>⌫</kbd> unmark, <kbd>space</kbd> step, <kbd>← ↑ → ↓</kbd> move.</p>
+          <div id="grid-legend-slot" class="legend-slot"></div>
+        </section>
+        <section class="view" id="view-network" role="tabpanel" aria-labelledby="tab-network">
+          <div id="network" class="network-wrap"></div>
+        </section>
+        <section class="view" id="view-person" role="tabpanel" aria-labelledby="tab-person">
+          <div id="person-view" class="person person-view"></div>
+        </section>
+        <section class="view" id="view-equation" role="tabpanel" aria-labelledby="tab-equation">
+          <div id="equation-view" class="equation"></div>
+        </section>
+      </div>
+    </div>
+
+    <aside class="side">
+      <section id="person-panel" class="panel inspector" hidden></section>
+      <section id="equation-panel" class="equation-panel" hidden></section>
+      <section id="node-panel" class="panel inspector" aria-live="polite" hidden></section>
+      <section id="inspector" class="panel inspector" aria-live="polite"></section>
+      <section id="legend-panel" class="panel legend-panel" aria-label="Legend">
+        <h2 class="panel-title">Legend</h2>
+        <ul class="legend-states" data-for="grid">
+          <li><span class="cell-sample marked"><span class="pips"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span> Marked: pips show the baseline (0–4); fill shows state under current load</li>
+          <li><span class="cell-sample unmarked"></span> Applicable, unmarked</li>
+          <li><span class="cell-sample na"></span> Not applicable</li>
+          <li><span class="cell-sample unmarked provisional"></span> Provisional sensitivities</li>
+        </ul>
+        <ul class="legend-states" data-for="network">
+          <li><svg class="legend-line" viewBox="0 0 44 14" aria-hidden="true"><path d="M2 7 H42" stroke-width="1.5"/></svg><svg class="legend-line" viewBox="0 0 44 14" aria-hidden="true"><path d="M2 7 H42" stroke-width="7.5"/></svg> Line thickness: baseline 0 → 4</li>
+          <li><svg class="legend-line" viewBox="0 0 44 14" aria-hidden="true"><path d="M2 7 H42" stroke-width="4" stroke-dasharray="6 4"/></svg> Provisional sensitivities</li>
+          <li><svg class="legend-node unsupported" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/></svg> Hollow domain: none of its features supportive</li>
+        </ul>
+        <ul class="legend-states" data-for="person">
+          <li>Ring color and height: the average state of its features under the current load</li>
+          <li>White rim: this capacity’s ring</li>
+          <li>Figure color: this capacity’s least-supported feature</li>
+        </ul>
+        <div class="options">
+          <label><input type="checkbox" id="opt-values"> Show values</label>
+          <label><input type="checkbox" id="opt-palette"> Colorblind-safe palette</label>
+        </div>
+      </section>
+      <section id="scenario-note" class="panel" hidden></section>
+    </aside>
+  </main>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

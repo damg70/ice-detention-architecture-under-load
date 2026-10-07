@@ -1,0 +1,9 @@
+{
+  "name": "architecture-under-load",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "serve": "python3 serve.py"
+  }
+}

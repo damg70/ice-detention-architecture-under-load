@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ICE Detention Architecture Under Load: A Project Summary</title>
+<style>
+@page {
+  size: letter;
+  margin: 0.85in 0.95in 0.9in;
+  @bottom-center { content: counter(page); font: 9pt "Avenir Next", "Helvetica Neue", sans-serif; color: #77736a; }
+}
+@page :first { @bottom-center { content: none; } }
+:root {
+  --ink: #1e1d1a; --ink-2: #4f4c45; --ink-3: #7b776d; --rule: #d6d2c8; --wash: #f3f1ec;
+  --accent: #8a3b24;
+  --severe: #9c3b27; --subst: #c0623a; --mixed: #c9a04f; --supp: #8fa45e; --res: #4f7f4f;
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; color: var(--ink); font: 10.6pt/1.5 Charter, "Iowan Old Style", Georgia, serif; hyphens: auto; }
+h1, h2, h3, .eyebrow, .meta, table, figcaption, .callout-title { font-family: "Avenir Next", "Helvetica Neue", sans-serif; }
+h1 { font-size: 25pt; line-height: 1.12; font-weight: 600; margin: 0 0 6pt; letter-spacing: -0.01em; }
+h1 .sub { display: block; font-weight: 400; font-size: 16pt; color: var(--ink-2); margin-top: 6pt; }
+h2 { font-size: 14.5pt; font-weight: 600; margin: 22pt 0 6pt; break-after: avoid; }
+h2 .n { color: var(--accent); font-weight: 500; margin-right: 6pt; }
+h3 { font-size: 11pt; font-weight: 600; margin: 14pt 0 3pt; break-after: avoid; }
+p { margin: 0 0 8pt; text-align: left; orphans: 3; widows: 3; }
+.eyebrow { font-size: 8.5pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 14pt; }
+.meta { font-size: 10pt; color: var(--ink-2); margin: 14pt 0 22pt; padding-bottom: 14pt; border-bottom: 1px solid var(--rule); }
+.meta b { color: var(--ink); font-weight: 600; }
+.lede { font-size: 12pt; line-height: 1.5; }
+ul, ol { margin: 0 0 9pt; padding-left: 16pt; }
+li { margin-bottom: 3pt; }
+em { font-style: italic; }
+.formula { font: 10.5pt/1.7 Menlo, monospace; background: var(--wash); padding: 8pt 12pt; border-radius: 3pt; margin: 6pt 0 10pt; white-space: pre; break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; line-height: 1.35; margin: 4pt 0 12pt; break-inside: avoid; }
+th { text-align: left; font-weight: 600; color: var(--ink-2); border-bottom: 1.2px solid var(--ink-3); padding: 4pt 6pt 4pt 0; vertical-align: bottom; }
+td { border-bottom: 1px solid var(--rule); padding: 4pt 6pt 4pt 0; vertical-align: top; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.two { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0 22pt; font-size: 9.6pt; break-inside: avoid; margin-bottom: 8pt; }
+.two ol, .two ul { margin-top: 0; }
+.two li { break-inside: avoid; }
+.chip { display: inline-block; width: 9pt; height: 9pt; border-radius: 1.5pt; vertical-align: -1pt; margin-right: 4pt; }
+figure { margin: 8pt 0 14pt; break-inside: avoid; }
+figcaption { font-size: 8.8pt; color: var(--ink-2); line-height: 1.4; margin-top: 4pt; }
+.callout { border-left: 2.5pt solid var(--accent); padding: 2pt 0 2pt 11pt; margin: 10pt 0 12pt; break-inside: avoid; }
+.callout-title { font-size: 9pt; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 3pt; }
+.callout p:last-child { margin-bottom: 0; }
+.sources p { font-size: 9.4pt; line-height: 1.4; margin-bottom: 7pt; padding-left: 14pt; text-indent: -14pt; }
+.sources .url { font: 8.2pt Menlo, monospace; color: var(--ink-2); word-break: break-all; }
+.break { break-before: page; }
+.quote { font-style: italic; color: var(--ink-2); }
+svg text { font-family: "Avenir Next", "Helvetica Neue", sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">Project summary · October 2026</div>
+<h1>ICE Detention Architecture Under Load<span class="sub">A Project Summary</span></h1>
+<div class="meta"><b>Dr. David A.M. Goldberg</b> and <b>Claude</b> (Anthropic)</div>
+
+<p class="lede">Architecture Under Load is an interactive model of immigration detention interiors. It asks a single question from many angles: how does a building that holds people respond as their stay gets longer and the number of people inside grows? A holding room built for an afternoon is a different place after three days. A housing unit built for sixty is a different place with a hundred and ten.</p>
+
+<p>The model runs in a web browser. You choose a kind of facility, describe how well its architecture supports the basic parts of daily life, and then push on it with two controls: <em>how long</em> people are held, and <em>how many</em> are held relative to what the building was designed for. The model shows where support holds, where it thins, and where it gives way.</p>
+
+<p>This summary explains what the project is, how it works, where its numbers come from, and how to change them. It is written for readers who are curious but not necessarily technical. The math is simple and is explained in full in section 5.</p>
+
+<h2><span class="n">1</span>What this is, and what it is not</h2>
+
+<p>Architecture Under Load is an <em>imaginative instrument</em>. It is built to help people picture the range of conditions that detention architecture can produce, what might be called its phase space, and to raise discussion of detention to the level of how buildings actually behave. It works with abstract types of facility, not real ones.</p>
+
+<p>It is deliberately <strong>not</strong>:</p>
+<ul>
+  <li>a map of real facilities, or a judgment of any particular one;</li>
+  <li>a database of allegations or inspection findings;</li>
+  <li>a compliance checker for ICE's detention standards;</li>
+  <li>a prediction claiming statistical accuracy;</li>
+  <li>a score that labels a facility humane or inhumane;</li>
+  <li>a game where "good detention" is the winning state.</li>
+</ul>
+
+<p>The model can show architecture holding up well, not only failing. A well-provided building under light load should read as supportive, and it does. What the model insists on is that support is never a fixed property of a building: it is a margin between what the building supplies and what its occupants need, and that margin moves.</p>
+
+<h2><span class="n">2</span>Why architecture?</h2>
+
+<p>Public discussion of detention usually centers on policy, operations, and individual incidents. Architecture sits underneath all three and is rarely examined on its own terms. Walls, plumbing, windows, distances, and room sizes are decided once, years in advance, and then quietly shape every day that follows.</p>
+
+<p>The project keeps three things separate that are easy to blur together:</p>
+<ol>
+  <li><strong>Architectural capacity</strong>: what the building physically makes possible. A shower room, a window, a separate sleeping area.</li>
+  <li><strong>Operational provision</strong>: what staff actually make available. Whether the showers are open, whether the yard is used.</li>
+  <li><strong>Lived condition</strong>: what the people inside experience.</li>
+</ol>
+<p>A building can contain showers that people rarely get to use. It can have a yard that is locked most of the week. The model only describes the first item, architectural capacity, and lets you watch how that capacity meets the pressure of time and crowding.</p>
+
+<div class="callout">
+  <div class="callout-title">Overcrowding stands in for understaffing</div>
+  <p>Staffing and management are not variables in the model. That is a deliberate choice, not an oversight. When a facility holds more people than it was designed for, the same kitchen, the same rooms and, typically, the same staff serve more people than they were built for. Pushing the population control past 100% is therefore the honest way to represent strained operations without pretending to model them directly.</p>
+</div>
+
+<h2><span class="n">3</span>The grid</h2>
+
+<p>The heart of the model is a grid. Its 13 rows are <strong>architectural capacities</strong>, properties of the built form. Its 10 columns are <strong>lived domains</strong>, the parts of daily life that architecture supports or fails to support.</p>
+
+<p>Each cell is one relationship, posed as a question. For example: <span class="quote">To what degree does the architecture's ability to divide people into smaller units support sleep and rest?</span></p>
+
+<h3>Baselines: your answer to the question</h3>
+<p>For each cell you can record a <strong>baseline</strong>, a rating from 0 to 4 of how well the architecture supports that part of life <em>before any load is placed on it</em>:</p>
+<table>
+  <tr><th style="width:12%">Baseline</th><th>Meaning</th></tr>
+  <tr><td>0</td><td>Actively poor: the architecture works against this need</td></tr>
+  <tr><td>1</td><td>Weak</td></tr>
+  <tr><td>2</td><td>Mixed / marginal</td></tr>
+  <tr><td>3</td><td>Supportive</td></tr>
+  <tr><td>4</td><td>Strongly supportive</td></tr>
+</table>
+<p>A cell can also be left <strong>unmarked</strong>. Unmarked means no claim has been made, and the model leaves that cell out entirely rather than guessing. That is different from <strong>not applicable</strong>: 16 of the 130 cells are marked as having no direct relationship. Whether daylight affects access to food, for instance, is treated as not applicable.</p>
+
+<p>The full set of rows and columns:</p>
+<div class="two">
+  <div>
+  <h3 style="margin-top:0">Architectural capacities (rows)</h3>
+  <ol>
+    <li>Spatial granularity: how finely the building divides people into smaller groups</li>
+    <li>Sensory compartmentalization: whether sound, light, odor and activity stay within areas</li>
+    <li>Wet-core / plumbing design</li>
+    <li>Daylight &amp; exterior orientation</li>
+    <li>Exterior permeability: practical access to the outdoors</li>
+    <li>Acoustic refuge: quieter places to retreat to</li>
+    <li>Functional adjacency: how sleeping, eating, washing and other functions are arranged</li>
+    <li>Circulation autonomy: moving between permitted spaces without an escort</li>
+    <li>Climate envelope / HVAC resilience</li>
+    <li>Horizontal space &amp; sleep infrastructure</li>
+    <li>Territorial connectivity: the site's connection to outside services</li>
+    <li>Inspectability: whether outsiders can observe and communicate</li>
+    <li>Spatial differentiation: access to genuinely different environments</li>
+  </ol>
+  </div>
+  <div>
+  <h3 style="margin-top:0">Lived domains (columns)</h3>
+  <ol>
+    <li>Sleep &amp; rest</li>
+    <li>Hygiene &amp; bodily privacy</li>
+    <li>Food &amp; water</li>
+    <li>Sensory regulation</li>
+    <li>Movement &amp; recreation</li>
+    <li>Medical access</li>
+    <li>Legal &amp; social communication</li>
+    <li>Temporal orientation (knowing what time it is)</li>
+    <li>Safety &amp; conflict exposure</li>
+    <li>Agency &amp; dignity</li>
+  </ol>
+  </div>
+</div>
+
+<h3>Archetypes</h3>
+<p>To get started, you can load one of six abstract archetypes. Each comes with a short history of where the building type comes from and a set of baselines drawn from that history:</p>
+<ul>
+  <li><strong>Short-term processing / holding space</strong>, descended from the police lockup and the field-office processing room, planned for hours.</li>
+  <li><strong>Purpose-built long-term detention</strong>, planned from the outset for stays of weeks or months, typically housing pods around dayrooms.</li>
+  <li><strong>County-jail insertion</strong>, a local jail housing immigration detainees under contract alongside its own population.</li>
+  <li><strong>Converted / reactivated prison</strong>, which inherits a correctional spatial system of cells, controlled movement and a secure perimeter.</li>
+  <li><strong>Soft-sided mass camp</strong>, a rapidly deployed form drawn from disaster-relief and military logistics: large fabric structures with trailered services.</li>
+  <li><strong>Family / residential campus</strong>, drawing on dormitory, residential and motel types arranged as a campus.</li>
+</ul>
+<p>The moment you change any cell, the archetype becomes your own custom scenario, named after where it started, for example "Custom (County-jail insertion)".</p>
+
+<h2><span class="n">4</span>Two pressures: time and crowding</h2>
+
+<p>Two sliders apply pressure to every cell at once.</p>
+<p><strong>Duration of exposure</strong> runs from 2 hours to 6 months or more. Internally it becomes a number <em>D</em> between 0 and 1 that rises quickly at first and then levels off. The first days change the meaning of a space far more than the difference between month five and month six. Eight hours gives D = 0.18; one day, 0.32; three days, 0.47; one week, 0.58; one month, 0.77; six months, 1.</p>
+<p><strong>Population / capacity load</strong> runs from 25% to 300% of the number of people the building was designed for. It becomes a number <em>P</em> between 0 and 1 that stays low below capacity and climbs steeply past it. At 50% capacity, P = 0.05; at 100%, 0.25; at 150%, 0.55; at 200%, 0.75; at 300%, 1.</p>
+<p>These curves are choices, not measurements. They encode a judgment that early hours matter most for duration and that overcrowding past design capacity matters most for population. Both are easy to reshape (section 9).</p>
+
+<h2><span class="n">5</span>The math, in plain terms</h2>
+
+<p>Every marked cell goes through the same four steps. The arithmetic is simple enough to follow by hand.</p>
+
+<h3>Step 1. Support</h3>
+<p>The baseline becomes a support value between 0 and 1: baseline 0 gives 0, baseline 2 gives 0.5, baseline 4 gives 1. Support never changes when the sliders move. The building is the building.</p>
+
+<h3>Step 2. Load</h3>
+<p>Each cell also has four <strong>sensitivities</strong>, numbers that describe how strongly that particular relationship reacts to pressure:</p>
+<ul>
+  <li><strong>base demand</strong>: need that exists from the first hour, regardless of time or crowding;</li>
+  <li><strong>duration sensitivity</strong>: how much the need grows as the stay lengthens;</li>
+  <li><strong>population sensitivity</strong>: how much it grows with crowding;</li>
+  <li><strong>interaction sensitivity</strong>: how much worse long stays and crowding are <em>together</em> than either alone.</li>
+</ul>
+<p>Sleep, for example, is highly sensitive to crowding. Knowing what time it is depends mostly on duration. The load on a cell adds these together:</p>
+<div class="formula">load = base demand
+     + duration sensitivity × D
+     + population sensitivity × P
+     + interaction sensitivity × D × P</div>
+
+<h3>Step 3. Demand</h3>
+<p>Load is converted into demand by a curve that rises steeply at first and then flattens toward a ceiling of 1.15:</p>
+<div class="formula">demand = 1.15 × (1 − e<sup>−load</sup>)</div>
+<p>The ceiling matters. Without it, enough pressure would make every cell fail no matter how good the building. With it, the strongest architecture (support 1.0) can always stay at least partly ahead of demand, while weaker architecture is overtaken.</p>
+
+<h3>Step 4. The margin</h3>
+<p>Finally the model compares support and demand:</p>
+<div class="formula">E = 0.5 + support − demand        (kept between 0 and 1)</div>
+<p>When support exactly matches demand, E is 0.5. Above that the building has headroom; below it, demand is winning. E falls into one of five states, which color the grid:</p>
+<table>
+  <tr><th style="width:18%">E</th><th>State</th></tr>
+  <tr><td>below 0.2</td><td><span class="chip" style="background:var(--severe)"></span>Severe strain</td></tr>
+  <tr><td>0.2 to 0.4</td><td><span class="chip" style="background:var(--subst)"></span>Substantial strain</td></tr>
+  <tr><td>0.4 to 0.6</td><td><span class="chip" style="background:var(--mixed)"></span>Unstable / mixed</td></tr>
+  <tr><td>0.6 to 0.8</td><td><span class="chip" style="background:var(--supp)"></span>Supportive</td></tr>
+  <tr><td>0.8 and above</td><td><span class="chip" style="background:var(--res)"></span>Resilient margin</td></tr>
+</table>
+
+<figure>
+<svg viewBox="0 0 560 250" width="100%" role="img" aria-label="Demand rises with load and levels off below 1.15. Horizontal lines show support for baselines 2 and 4.">
+  <!-- axes: x load 0..2 → 60..520 ; y 0..1.2 → 210..30 -->
+  <line x1="60" y1="210" x2="525" y2="210" stroke="#7b776d" stroke-width="1"/>
+  <line x1="60" y1="210" x2="60" y2="25" stroke="#7b776d" stroke-width="1"/>
+  <g font-size="10" fill="#4f4c45">
+    <text x="60" y="226" text-anchor="middle">0</text>
+    <text x="175" y="226" text-anchor="middle">0.5</text>
+    <text x="290" y="226" text-anchor="middle">1.0</text>
+    <text x="405" y="226" text-anchor="middle">1.5</text>
+    <text x="520" y="226" text-anchor="middle">2.0</text>
+    <text x="290" y="244" text-anchor="middle" font-weight="600">load on the cell</text>
+    <text x="52" y="213" text-anchor="end">0</text>
+    <text x="52" y="138" text-anchor="end">0.5</text>
+    <text x="52" y="63" text-anchor="end">1.0</text>
+    <text x="16" y="120" text-anchor="middle" transform="rotate(-90 16 120)" font-weight="600">support / demand</text>
+  </g>
+  <line x1="60" y1="37.5" x2="520" y2="37.5" stroke="#7b776d" stroke-dasharray="3 3"/>
+  <text x="520" y="31" font-size="9.5" fill="#7b776d" text-anchor="end">ceiling 1.15</text>
+  <line x1="60" y1="60" x2="520" y2="60" stroke="#4f7f4f" stroke-width="1.6"/>
+  <text x="64" y="54" font-size="9.5" fill="#4f7f4f">support at baseline 4 (1.0)</text>
+  <line x1="60" y1="135" x2="520" y2="135" stroke="#c9a04f" stroke-width="1.6"/>
+  <text x="64" y="129" font-size="9.5" fill="#9a7a35">support at baseline 2 (0.5)</text>
+  <path fill="none" stroke="#8a3b24" stroke-width="2.2" d="M60.0,210.0 L71.5,201.6 L83.0,193.6 L94.5,186.0 L106.0,178.7 L117.5,171.8 L129.0,165.3 L140.5,159.1 L152.0,153.1 L163.5,147.5 L175.0,142.1 L186.5,137.0 L198.0,132.2 L209.5,127.6 L221.0,123.2 L232.5,119.0 L244.0,115.0 L255.5,111.2 L267.0,107.6 L278.5,104.2 L290.0,101.0 L301.5,97.9 L313.0,94.9 L324.5,92.1 L336.0,89.5 L347.5,86.9 L359.0,84.5 L370.5,82.2 L382.0,80.0 L393.5,78.0 L405.0,76.0 L416.5,74.1 L428.0,72.3 L439.5,70.6 L451.0,69.0 L462.5,67.5 L474.0,66.0 L485.5,64.6 L497.0,63.3 L508.5,62.0 L520.0,60.8"/>
+  <text x="430" y="94" font-size="10" fill="#8a3b24" font-weight="600">demand</text>
+  <g font-size="9.5" fill="#1e1d1a">
+    <circle cx="103.7" cy="180.0" r="3.6" fill="#1e1d1a"/><text x="96" y="196" text-anchor="middle">A</text>
+    <circle cx="211.8" cy="126.0" r="3.6" fill="#1e1d1a"/><text x="212" y="116" text-anchor="middle">B</text>
+    <circle cx="372.8" cy="82.5" r="3.6" fill="#1e1d1a"/><text x="373" y="73" text-anchor="middle">C</text>
+  </g>
+</svg>
+<figcaption>Demand rises with load and levels off below its ceiling. Where the demand curve crosses a cell's support line, E is exactly 0.5. Points A, B and C are the three conditions in the example below. At C, demand (0.85) has passed the support of a baseline-2 building (0.5) but not of a baseline-4 building (1.0).</figcaption>
+</figure>
+
+<h3>A worked example</h3>
+<p>Take <strong>Spatial granularity × Sleep &amp; rest</strong>: does the building divide people into small enough groups to let them sleep? Its sensitivities are base demand 0.05, duration 0.55, population 0.75, and interaction 0.75. Crowding matters a great deal here. Here is the same cell in a building rated 2 (mixed) and one rated 4 (strongly supportive), under three conditions:</p>
+<table>
+  <tr><th></th><th>Condition</th><th class="num">D</th><th class="num">P</th><th class="num">Load</th><th class="num">Demand</th><th class="num">E at baseline 2</th><th class="num">E at baseline 4</th></tr>
+  <tr><td>A</td><td>8 hours, 50% of capacity</td><td class="num">0.18</td><td class="num">0.05</td><td class="num">0.19</td><td class="num">0.20</td><td class="num">0.80 supportive</td><td class="num">1.00 resilient</td></tr>
+  <tr><td>B</td><td>1 week, 100%</td><td class="num">0.58</td><td class="num">0.25</td><td class="num">0.66</td><td class="num">0.56</td><td class="num">0.44 mixed</td><td class="num">0.94 resilient</td></tr>
+  <tr><td>C</td><td>1 month, 180%</td><td class="num">0.77</td><td class="num">0.67</td><td class="num">1.36</td><td class="num">0.85</td><td class="num">0.15 severe</td><td class="num">0.65 supportive</td></tr>
+</table>
+<p>The building rated 2 is supportive for a short, uncrowded stay and in severe strain after a crowded month. Nothing about the building changed. Only the demand placed on it did. The building rated 4 bends but holds. That contrast, the same architecture reading differently under different pressure, is what the whole model is built to show.</p>
+
+<p>Of the 130 cells, 52 have sensitivities written specifically for that relationship, 16 are not applicable, and the remaining 62 use cautious default values and are marked as provisional in the grid. Each authored cell also carries a short description of its mechanism, the physical reason demand rises. For sleep and granularity, that is "how many others share a sleeping volume, and how far one person's waking or distress spreads."</p>
+
+<h2><span class="n">6</span>Seeing the whole: the network view</h2>
+
+<p>The grid shows relationships one at a time. The network view shows the same scenario as a web. Each architectural capacity is a node on the left, each lived domain a node on the right, and each marked cell a line between them. A line's thickness shows its baseline and its color shows its current state, so as the sliders move you can watch strain spread through the web.</p>
+<p>The network makes one thing easy to see that the grid hides: dependence. A lived domain supported by only one capacity is fragile. When that one line turns red, nothing else holds it up. Domains with no supportive line at all are drawn hollow.</p>
+
+<h2><span class="n">7</span>A person in the building: the person view</h2>
+
+<p>From the network you can open any architectural capacity into a <strong>person view</strong>: a three-dimensional scene of a single abstract figure inside a half-cut room, seen in section like an architectural model.</p>
+<ul>
+  <li><strong>Rings.</strong> The figure stands on five concentric rings, from the body outward to reach, room, building and world. Each ring gathers the relationships that operate at that scale, takes the color of their average state, and rises or sinks with it. Under light load the rings form a mound the figure stands on; under heavy load they sink into a pit.</li>
+  <li><strong>The figure</strong> is neutral and faceless, colored by the weakest relationship of the opened capacity. Strain is shown through position, light and color, never through depicted distress.</li>
+  <li><strong>Light</strong> follows the baselines, not the sliders: whether there is a window and how large, how many hours outdoors the facility allows, and whether the lights go out at night. Lighting shows what the building provides; color shows what that means to the person.</li>
+  <li><strong>The day.</strong> A 24-hour cycle plays in about a minute and a half. It is one representative day at the duration and population you have set, not time passing. The model keeps one clock, the duration slider, and the person view does not count days.</li>
+  <li><strong>The thought bubble.</strong> Every few seconds the figure thinks a short first-person line belonging to one relationship of the opened capacity, written for its current state and for the time of day. For example, the food relationship moves from <span class="quote">"Three hot meals, at the same times every day"</span> under light load to <span class="quote">"Sometimes I don't know when or what I'm going to eat"</span> under severe strain. Lines never refer to other days. The bubble only speaks for the capacity you opened. Connecting one thought to another, a fight across the room with meals that don't come on time, is left to you as you move between capacities.</li>
+</ul>
+
+<h2><span class="n">8</span>Where the numbers come from</h2>
+
+<p>None of the numbers in this model were measured. The rows and columns, the archetypes' baselines, the sensitivities and the shape of the formula were all reached by interpreting reporting and inspection records, most of it qualitative and indirect: interviews, site visits, oversight findings and agency standards. They are informed judgments, written down precisely so that they can be argued with.</p>
+
+<p>Six sources formed the backbone, each answering a different question:</p>
+<table>
+  <tr><th style="width:30%">Source</th><th style="width:34%">Question it answers</th><th>What it contributed</th></tr>
+  <tr><td>U.S. Government Accountability Office (2025)</td><td>What does the detention and inspection system look like as a whole?</td><td>The system is varied, not one building type. A passing inspection can coexist with serious deficiencies, so no single score.</td></tr>
+  <tr><td>ICE Performance-Based National Detention Standards (2011, rev. 2016)</td><td>What does ICE say facilities should provide?</td><td>The reference point for intended provision, and the separation of what is intended from what is observed.</td></tr>
+  <tr><td>California Department of Justice (2025, 2026)</td><td>How do several facilities compare under one review framework?</td><td>Variation across sites, and conditions worsening with rapid population growth.</td></tr>
+  <tr><td>Human Rights Watch et al., Florida (2025)</td><td>What happens when conventional facilities face sudden population pressure?</td><td>Crowding as a multiplier that strains sleep space, sanitation, food, medical care and movement at once; holding rooms used for days.</td></tr>
+  <tr><td>Human Rights Watch, Fort Bliss (2026)</td><td>What becomes visible in rapidly built soft-sided mass detention?</td><td>Granularity, sensory and acoustic coupling, wet-core and adjacency variables.</td></tr>
+  <tr><td>Physicians for Human Rights and Harvard (2024)</td><td>What happens when confinement is prolonged and isolating?</td><td>Duration as a force that changes what a condition means; lighting, isolation and sensory effects.</td></tr>
+</table>
+
+<p>These sources are not interchangeable, and the model does not treat them as one pool of evidence. Advocacy investigations document failure; agency standards describe intentions; government audits describe systems. A condition reported at one facility is not assumed to be universal, and the existence of a standard is not taken as proof of compliance. The reports establish <em>relationships</em> (that crowding presses on sleep, that duration changes the weight of fluorescent light) and the model gives those relationships numbers. Individual allegations were never turned directly into coefficients.</p>
+
+<p>The project's own working rules follow from this: keep architectural capacity separate from operations; keep "unknown" separate from "poor"; never produce a single moral or legal score; and leave room for architecture that holds up.</p>
+
+<h2><span class="n">9</span>Your turn: change the numbers</h2>
+
+<p>Because every number is a judgment, the most useful thing a reader can do is disagree with one. The model is built for that.</p>
+
+<h3>Without touching any code</h3>
+<ul>
+  <li><strong>Change a baseline.</strong> Select any cell, read its question, and give your own answer from 0 to 4. If you know a building type better than we do, your rating is the better one.</li>
+  <li><strong>Find a threshold.</strong> Hold one slider still and move the other until a cell changes state. Where that happens is a claim the model is making; ask whether it matches what you know.</li>
+  <li><strong>Compare archetypes</strong> under the same load and look at which relationships fail first in each.</li>
+  <li><strong>Leave cells unmarked</strong> when you don't know. The model would rather show a gap than an invented answer.</li>
+</ul>
+
+<h3>With a text editor</h3>
+<ul>
+  <li><strong>Sensitivities</strong> for every relationship live in one readable data file. If you think crowding should weigh more heavily on medical access, or that duration matters more for dignity, change the number and reload.</li>
+  <li><strong>The slider curves</strong>, the demand ceiling and the state boundaries sit in a single configuration file.</li>
+  <li><strong>The formula itself</strong> is one short function. An earlier formula failed the scenario checks the project set for itself and was replaced; the current one, version 3, is still a working hypothesis.</li>
+</ul>
+<p>Scenarios can be exported and shared, so a change can become a conversation: here is my version of a county jail, here is where it breaks, here is why I rated it this way.</p>
+
+<h3>What the model leaves out</h3>
+<p>Some things are missing on purpose, and some are missing for now. Staffing and management are left out on purpose (section 2). The <strong>population profile</strong> is missing for now: families, children, older people, and people with medical or disability needs placed in buildings designed for single adults. That gap matters, and it is noted as open work. The model also does not yet show failures cascading from one relationship to another; each cell responds to load on its own. Planned additions include a way to compare two scenarios side by side and a view that explains the math directly alongside the grid.</p>
+
+<p>Architecture Under Load does not tell you what any facility is like. It gives you a precise, adjustable way to think about what a building can and cannot hold, and an open invitation to make it more accurate.</p>
+
+<div class="sources break">
+<h2 style="margin-top:0">Sources</h2>
+<p>U.S. Government Accountability Office. <em>Immigration Detention: DHS Should Define Goals and Measures to Assess Facility Inspection Programs.</em> GAO-25-107580. May 21, 2025. <span class="url">https://www.gao.gov/products/gao-25-107580</span></p>
+<p>U.S. Immigration and Customs Enforcement. <em>Performance-Based National Detention Standards 2011</em>, revised December 2016. <span class="url">https://www.ice.gov/doclib/detention-standards/2011/pbnds2011r2016.pdf</span></p>
+<p>California Department of Justice. <em>Immigration Detention in California 2025</em> (focus on mental health), and <em>Immigration Detention in California 2026: A Review of Conditions of Confinement.</em> <span class="url">https://oag.ca.gov/publications/</span> · <span class="url">https://www.oag.ca.gov/immigrant</span></p>
+<p>Human Rights Watch, Americans for Immigrant Justice, and Sanctuary of the South. <em>"You Feel Like Your Life Is Over": Abusive Practices at Three Florida Immigration Detention Centers Since January 2025.</em> July 21, 2025. <span class="url">https://www.hrw.org/report/2025/07/21/you-feel-like-your-life-is-over/abusive-practices-at-three-florida-immigration</span></p>
+<p>Human Rights Watch. <em>"You're Only Getting Out Deported or Dead": Abusive US Immigration Detention at Ft. Bliss.</em> July 15, 2026. <span class="url">https://www.hrw.org/report/2026/07/15/youre-only-getting-out-deported-or-dead/abusive-us-immigration-detention-at-ft</span></p>
+<p>Physicians for Human Rights; Harvard Law School Immigration and Refugee Clinical Program; Peeler Immigration Lab, Harvard Medical School. <em>"Endless Nightmare": Torture and Inhuman Treatment in Solitary Confinement in U.S. Immigration Detention.</em> February 6, 2024. <span class="url">https://phr.org/our-work/resources/endless-nightmare-solitary-confinement-in-us-immigration-detention/</span></p>
+</div>
+
+</body>
+</html>

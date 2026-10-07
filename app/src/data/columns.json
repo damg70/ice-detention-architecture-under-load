@@ -1,0 +1,12 @@
+[
+  { "id": "sleep_rest",           "label": "Sleep & rest",                 "short": "Sleep",     "phrase": "sleep and rest" },
+  { "id": "hygiene_privacy",      "label": "Hygiene & bodily privacy",     "short": "Hygiene",   "phrase": "washing, elimination, and bodily privacy" },
+  { "id": "food_water",           "label": "Food & water",                 "short": "Food",      "phrase": "access to food and water" },
+  { "id": "sensory_regulation",   "label": "Sensory regulation",           "short": "Sensory",   "phrase": "a person's ability to regulate sensory load" },
+  { "id": "movement_recreation",  "label": "Movement & recreation",        "short": "Movement",  "phrase": "movement and recreation" },
+  { "id": "medical_access",       "label": "Medical access",               "short": "Medical",   "phrase": "timely access to medical care" },
+  { "id": "legal_social",         "label": "Legal & social communication", "short": "Legal/soc.", "phrase": "legal and social communication" },
+  { "id": "temporal_orientation", "label": "Temporal orientation",         "short": "Temporal",  "phrase": "a person's ability to orient themselves in time" },
+  { "id": "safety_conflict",      "label": "Safety & conflict exposure",   "short": "Safety",    "phrase": "safety and freedom from conflict" },
+  { "id": "agency_dignity",       "label": "Agency & dignity",             "short": "Agency",    "phrase": "agency and dignity" }
+]

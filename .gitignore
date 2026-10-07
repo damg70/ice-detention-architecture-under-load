@@ -1,0 +1,12 @@
+.DS_Store
+.claude/
+__pycache__/
+node_modules/
+
+# Working files kept local: review notes and sketches
+intersection_review.md
+baseline_review.md
+bubble_lines_review.md
+critique_for_spec_author.md
+sketches/
+camera_options.png

@@ -1,0 +1,554 @@
+{
+  "metadataVersion": "2026-10-06",
+  "note": "Design hypotheses for making the instrument behave coherently. Not research findings. Edit freely; unlisted intersections use defaultIntersection from model-config.json and are shown as provisional.",
+  "entries": [
+    {
+      "row": "spatial_granularity",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.55,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.75,
+      "baseDemand": 0.05,
+      "mechanism": "how many others share a sleeping volume, and how far one person's waking or distress spreads"
+    },
+    {
+      "row": "spatial_granularity",
+      "column": "hygiene_privacy",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.65,
+      "baseDemand": 0.1,
+      "mechanism": "how many people share each washroom"
+    },
+    {
+      "row": "spatial_granularity",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.55,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.7,
+      "baseDemand": 0.05,
+      "mechanism": "how many people you are continuously among"
+    },
+    {
+      "row": "spatial_granularity",
+      "column": "medical_access",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.85,
+      "interactionSensitivity": 0.75,
+      "baseDemand": 0.05,
+      "mechanism": "the ability to separate the sick and contain contagion"
+    },
+    {
+      "row": "spatial_granularity",
+      "column": "safety_conflict",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.85,
+      "interactionSensitivity": 0.8,
+      "baseDemand": 0.05,
+      "mechanism": "the size of the group each person must coexist with, and the ability to separate conflicts"
+    },
+    {
+      "row": "sensory_compartmentalization",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.65,
+      "populationSensitivity": 0.7,
+      "interactionSensitivity": 0.8,
+      "baseDemand": 0.05,
+      "mechanism": "light, sound, and activity crossing from other areas into sleeping space"
+    },
+    {
+      "row": "sensory_compartmentalization",
+      "column": "hygiene_privacy",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.6,
+      "interactionSensitivity": 0.55,
+      "baseDemand": 0.1,
+      "mechanism": "odor, moisture, sound and sight lines from sanitation reaching living space"
+    },
+    {
+      "row": "sensory_compartmentalization",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.7,
+      "interactionSensitivity": 0.75,
+      "baseDemand": 0.05,
+      "mechanism": "noise, odor, moisture, and light propagating through shared volumes"
+    },
+    {
+      "row": "sensory_compartmentalization",
+      "column": "legal_social",
+      "durationSensitivity": 0.3,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.45,
+      "baseDemand": 0.1,
+      "mechanism": "whether calls and conversations can be held without being overheard"
+    },
+    {
+      "row": "sensory_compartmentalization",
+      "column": "safety_conflict",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.7,
+      "baseDemand": 0.05,
+      "mechanism": "conflict in one area propagating through the environment"
+    },
+    {
+      "row": "wet_core",
+      "column": "hygiene_privacy",
+      "durationSensitivity": 0.55,
+      "populationSensitivity": 0.9,
+      "interactionSensitivity": 0.75,
+      "baseDemand": 0.25,
+      "mechanism": "fixture availability, drainage, ventilation, cleaning, and privacy"
+    },
+    {
+      "row": "wet_core",
+      "column": "food_water",
+      "durationSensitivity": 0.3,
+      "populationSensitivity": 0.7,
+      "interactionSensitivity": 0.55,
+      "baseDemand": 0.2,
+      "mechanism": "sinks and drinking-water points"
+    },
+    {
+      "row": "wet_core",
+      "column": "medical_access",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.8,
+      "interactionSensitivity": 0.7,
+      "baseDemand": 0.05,
+      "mechanism": "sanitation failures that become illness"
+    },
+    {
+      "row": "wet_core",
+      "column": "safety_conflict",
+      "durationSensitivity": 0.3,
+      "populationSensitivity": 0.6,
+      "interactionSensitivity": 0.55,
+      "baseDemand": 0.05,
+      "mechanism": "queuing at fixtures, contested access, and wet or unsanitary floors"
+    },
+    {
+      "row": "wet_core",
+      "column": "agency_dignity",
+      "durationSensitivity": 0.55,
+      "populationSensitivity": 0.6,
+      "interactionSensitivity": 0.55,
+      "baseDemand": 0.1,
+      "mechanism": "the dignity of elimination: screening, being watched, having to ask"
+    },
+    {
+      "row": "daylight_orientation",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.7,
+      "populationSensitivity": 0.1,
+      "interactionSensitivity": 0.1,
+      "baseDemand": 0.0,
+      "mechanism": "the light cues that regulate the sleep cycle"
+    },
+    {
+      "row": "daylight_orientation",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.65,
+      "populationSensitivity": 0.1,
+      "interactionSensitivity": 0.1,
+      "baseDemand": 0.0,
+      "mechanism": "exposure to natural light and relief from uniform artificial lighting"
+    },
+    {
+      "row": "daylight_orientation",
+      "column": "temporal_orientation",
+      "durationSensitivity": 0.9,
+      "populationSensitivity": 0.1,
+      "interactionSensitivity": 0.1,
+      "baseDemand": 0.0,
+      "mechanism": "visible day/night cues and exterior light"
+    },
+    {
+      "row": "exterior_permeability",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.35,
+      "interactionSensitivity": 0.35,
+      "baseDemand": 0.0,
+      "mechanism": "relief from interior noise, light and air"
+    },
+    {
+      "row": "exterior_permeability",
+      "column": "movement_recreation",
+      "durationSensitivity": 0.7,
+      "populationSensitivity": 0.4,
+      "interactionSensitivity": 0.35,
+      "baseDemand": 0.0,
+      "mechanism": "practical access to outdoor air, sun, and room to move"
+    },
+    {
+      "row": "exterior_permeability",
+      "column": "temporal_orientation",
+      "durationSensitivity": 0.7,
+      "populationSensitivity": 0.1,
+      "interactionSensitivity": 0.1,
+      "baseDemand": 0.0,
+      "mechanism": "weather, seasons, and outdoor cues that mark the passage of time"
+    },
+    {
+      "row": "acoustic_refuge",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.7,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.85,
+      "baseDemand": 0.05,
+      "mechanism": "places to escape communal, mechanical, and announcement noise during rest"
+    },
+    {
+      "row": "acoustic_refuge",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.65,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.8,
+      "baseDemand": 0.05,
+      "mechanism": "quieter space in which to recover from constant noise"
+    },
+    {
+      "row": "acoustic_refuge",
+      "column": "legal_social",
+      "durationSensitivity": 0.35,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.45,
+      "baseDemand": 0.1,
+      "mechanism": "a quiet place to hear and be heard on a call or legal visit"
+    },
+    {
+      "row": "functional_adjacency",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.5,
+      "populationSensitivity": 0.6,
+      "interactionSensitivity": 0.55,
+      "baseDemand": 0.05,
+      "mechanism": "sleeping next to sanitation, the dayroom or circulation routes"
+    },
+    {
+      "row": "functional_adjacency",
+      "column": "hygiene_privacy",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.6,
+      "interactionSensitivity": 0.55,
+      "baseDemand": 0.2,
+      "mechanism": "where sanitation sits relative to sleeping and dining"
+    },
+    {
+      "row": "functional_adjacency",
+      "column": "food_water",
+      "durationSensitivity": 0.3,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.6,
+      "baseDemand": 0.15,
+      "mechanism": "the separation of eating from sleeping and sanitation, the path food and water travel, and kitchen and serving space sized for the design population"
+    },
+    {
+      "row": "functional_adjacency",
+      "column": "movement_recreation",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.45,
+      "baseDemand": 0.0,
+      "mechanism": "whether recreation space is practically reachable from housing"
+    },
+    {
+      "row": "functional_adjacency",
+      "column": "medical_access",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.7,
+      "interactionSensitivity": 0.6,
+      "baseDemand": 0.1,
+      "mechanism": "the distance and number of transitions between living space and medical care"
+    },
+    {
+      "row": "functional_adjacency",
+      "column": "legal_social",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.45,
+      "baseDemand": 0.1,
+      "mechanism": "the distance from housing to phones, visitation and attorney rooms"
+    },
+    {
+      "row": "circulation_autonomy",
+      "column": "hygiene_privacy",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.5,
+      "baseDemand": 0.15,
+      "mechanism": "needing an escort or door release to reach a toilet or shower"
+    },
+    {
+      "row": "circulation_autonomy",
+      "column": "movement_recreation",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.65,
+      "interactionSensitivity": 0.6,
+      "baseDemand": 0.0,
+      "mechanism": "how much movement requires escort, search, or door release"
+    },
+    {
+      "row": "circulation_autonomy",
+      "column": "medical_access",
+      "durationSensitivity": 0.35,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.45,
+      "baseDemand": 0.05,
+      "mechanism": "the staff mediation needed to reach care"
+    },
+    {
+      "row": "circulation_autonomy",
+      "column": "legal_social",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.45,
+      "baseDemand": 0.1,
+      "mechanism": "the escort needed to reach phones, visits or the law library"
+    },
+    {
+      "row": "circulation_autonomy",
+      "column": "agency_dignity",
+      "durationSensitivity": 0.7,
+      "populationSensitivity": 0.4,
+      "interactionSensitivity": 0.4,
+      "baseDemand": 0.05,
+      "mechanism": "permission required at every transition"
+    },
+    {
+      "row": "climate_hvac",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.7,
+      "interactionSensitivity": 0.7,
+      "baseDemand": 0.1,
+      "mechanism": "temperature, airflow, and humidity during rest"
+    },
+    {
+      "row": "climate_hvac",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.55,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.7,
+      "baseDemand": 0.1,
+      "mechanism": "air quality and thermal comfort as occupant heat and moisture accumulate"
+    },
+    {
+      "row": "climate_hvac",
+      "column": "medical_access",
+      "durationSensitivity": 0.45,
+      "populationSensitivity": 0.8,
+      "interactionSensitivity": 0.7,
+      "baseDemand": 0.1,
+      "mechanism": "heat illness, respiratory infection and airborne spread"
+    },
+    {
+      "row": "horizontal_space",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.7,
+      "populationSensitivity": 0.95,
+      "interactionSensitivity": 0.9,
+      "baseDemand": 0.1,
+      "mechanism": "a stable, personal place to lie down out of circulation paths"
+    },
+    {
+      "row": "horizontal_space",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.5,
+      "populationSensitivity": 0.75,
+      "interactionSensitivity": 0.65,
+      "baseDemand": 0.05,
+      "mechanism": "personal space out of the flow of people"
+    },
+    {
+      "row": "horizontal_space",
+      "column": "safety_conflict",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.8,
+      "interactionSensitivity": 0.7,
+      "baseDemand": 0.05,
+      "mechanism": "sleeping in circulation paths or beside strangers, and the security of belongings"
+    },
+    {
+      "row": "horizontal_space",
+      "column": "agency_dignity",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.7,
+      "interactionSensitivity": 0.6,
+      "baseDemand": 0.05,
+      "mechanism": "a place of one's own and somewhere to keep belongings"
+    },
+    {
+      "row": "territorial_connectivity",
+      "column": "medical_access",
+      "durationSensitivity": 0.3,
+      "populationSensitivity": 0.45,
+      "interactionSensitivity": 0.3,
+      "baseDemand": 0.1,
+      "mechanism": "connection to hospitals and outside specialists"
+    },
+    {
+      "row": "territorial_connectivity",
+      "column": "legal_social",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.3,
+      "interactionSensitivity": 0.25,
+      "baseDemand": 0.1,
+      "mechanism": "proximity to lawyers, courts, family, and transport"
+    },
+    {
+      "row": "inspectability",
+      "column": "legal_social",
+      "durationSensitivity": 0.35,
+      "populationSensitivity": 0.3,
+      "interactionSensitivity": 0.25,
+      "baseDemand": 0.15,
+      "mechanism": "confidential attorney and family access"
+    },
+    {
+      "row": "inspectability",
+      "column": "safety_conflict",
+      "durationSensitivity": 0.4,
+      "populationSensitivity": 0.3,
+      "interactionSensitivity": 0.25,
+      "baseDemand": 0.05,
+      "mechanism": "the ability of outsiders to see conditions and hear from inhabitants privately"
+    },
+    {
+      "row": "inspectability",
+      "column": "agency_dignity",
+      "durationSensitivity": 0.5,
+      "populationSensitivity": 0.3,
+      "interactionSensitivity": 0.3,
+      "baseDemand": 0.0,
+      "mechanism": "being seen and heard by outsiders, and having recourse"
+    },
+    {
+      "row": "spatial_differentiation",
+      "column": "sleep_rest",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.55,
+      "interactionSensitivity": 0.55,
+      "baseDemand": 0.0,
+      "mechanism": "whether sleeping space is separate from daytime activity"
+    },
+    {
+      "row": "spatial_differentiation",
+      "column": "sensory_regulation",
+      "durationSensitivity": 0.65,
+      "populationSensitivity": 0.4,
+      "interactionSensitivity": 0.4,
+      "baseDemand": 0.0,
+      "mechanism": "a variety of environments that relieves monotony and overload"
+    },
+    {
+      "row": "spatial_differentiation",
+      "column": "movement_recreation",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.4,
+      "interactionSensitivity": 0.4,
+      "baseDemand": 0.0,
+      "mechanism": "distinct places to move between"
+    },
+    {
+      "row": "spatial_differentiation",
+      "column": "temporal_orientation",
+      "durationSensitivity": 0.6,
+      "populationSensitivity": 0.2,
+      "interactionSensitivity": 0.2,
+      "baseDemand": 0.0,
+      "mechanism": "moving between different spaces that mark the time of day"
+    },
+    {
+      "row": "spatial_differentiation",
+      "column": "agency_dignity",
+      "durationSensitivity": 0.75,
+      "populationSensitivity": 0.45,
+      "interactionSensitivity": 0.45,
+      "baseDemand": 0.0,
+      "mechanism": "the chance to move between genuinely different environments during the day"
+    },
+    {
+      "row": "wet_core",
+      "column": "legal_social",
+      "applicable": false
+    },
+    {
+      "row": "wet_core",
+      "column": "temporal_orientation",
+      "applicable": false
+    },
+    {
+      "row": "daylight_orientation",
+      "column": "food_water",
+      "applicable": false
+    },
+    {
+      "row": "daylight_orientation",
+      "column": "legal_social",
+      "applicable": false
+    },
+    {
+      "row": "daylight_orientation",
+      "column": "medical_access",
+      "applicable": false
+    },
+    {
+      "row": "exterior_permeability",
+      "column": "legal_social",
+      "applicable": false
+    },
+    {
+      "row": "exterior_permeability",
+      "column": "food_water",
+      "applicable": false
+    },
+    {
+      "row": "horizontal_space",
+      "column": "legal_social",
+      "applicable": false
+    },
+    {
+      "row": "horizontal_space",
+      "column": "temporal_orientation",
+      "applicable": false
+    },
+    {
+      "row": "horizontal_space",
+      "column": "food_water",
+      "applicable": false
+    },
+    {
+      "row": "climate_hvac",
+      "column": "legal_social",
+      "applicable": false
+    },
+    {
+      "row": "climate_hvac",
+      "column": "temporal_orientation",
+      "applicable": false
+    },
+    {
+      "row": "inspectability",
+      "column": "temporal_orientation",
+      "applicable": false
+    },
+    {
+      "row": "territorial_connectivity",
+      "column": "temporal_orientation",
+      "applicable": false
+    },
+    {
+      "row": "territorial_connectivity",
+      "column": "sleep_rest",
+      "applicable": false
+    },
+    {
+      "row": "acoustic_refuge",
+      "column": "food_water",
+      "applicable": false
+    }
+  ]
+}

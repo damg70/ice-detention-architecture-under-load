@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equation Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="equation.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="appbar">
+      <h1>Architecture Under Load</h1>
+      <div id="labbar" class="labbar"></div>
+    </div>
+  </header>
+
+  <section class="stress-band" aria-label="Stress controls">
+    <div id="stress" class="stress"></div>
+    <div class="ramp-band" aria-hidden="true">
+      <div class="legend-ramp"></div>
+      <div class="legend-ends">
+        <span>−− severe strain</span><span>− substantial</span><span>~ just adequate</span><span>+ supportive</span><span>++ resilient margin</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="equation" class="equation"></div>
+
+  <script type="module" src="src/equation/main.js"></script>
+</body>
+</html>

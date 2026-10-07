@@ -1,0 +1,127 @@
+{
+  "modelVersion": 2,
+  "demandCeiling": 1.15,
+  "duration": {
+    "minHours": 2,
+    "maxHours": 4380,
+    "anchors": [
+      {
+        "hours": 2,
+        "label": "2 h"
+      },
+      {
+        "hours": 8,
+        "label": "8 h"
+      },
+      {
+        "hours": 24,
+        "label": "24 h"
+      },
+      {
+        "hours": 72,
+        "label": "72 h"
+      },
+      {
+        "hours": 168,
+        "label": "1 wk"
+      },
+      {
+        "hours": 720,
+        "label": "1 mo"
+      },
+      {
+        "hours": 2190,
+        "label": "3 mo"
+      },
+      {
+        "hours": 4380,
+        "label": "6 mo+"
+      }
+    ]
+  },
+  "population": {
+    "anchors": [
+      {
+        "ratio": 0.25,
+        "P": 0.0
+      },
+      {
+        "ratio": 0.5,
+        "P": 0.05
+      },
+      {
+        "ratio": 0.75,
+        "P": 0.12
+      },
+      {
+        "ratio": 1.0,
+        "P": 0.25
+      },
+      {
+        "ratio": 1.25,
+        "P": 0.4
+      },
+      {
+        "ratio": 1.5,
+        "P": 0.55
+      },
+      {
+        "ratio": 2.0,
+        "P": 0.75
+      },
+      {
+        "ratio": 3.0,
+        "P": 1.0
+      }
+    ]
+  },
+  "defaultIntersection": {
+    "durationSensitivity": 0.4,
+    "populationSensitivity": 0.4,
+    "interactionSensitivity": 0.3,
+    "baseDemand": 0.0
+  },
+  "minimalLoad": {
+    "durationHours": 2,
+    "loadRatio": 0.25
+  },
+  "states": [
+    {
+      "max": 0.2,
+      "key": "severe",
+      "label": "Severe strain",
+      "glyph": "−−"
+    },
+    {
+      "max": 0.4,
+      "key": "substantial",
+      "label": "Substantial strain",
+      "glyph": "−"
+    },
+    {
+      "max": 0.6,
+      "key": "mixed",
+      "label": "Unstable / mixed",
+      "glyph": "~"
+    },
+    {
+      "max": 0.8,
+      "key": "supportive",
+      "label": "Supportive",
+      "glyph": "+"
+    },
+    {
+      "max": 1.01,
+      "key": "resilient",
+      "label": "Resilient margin",
+      "glyph": "++"
+    }
+  ],
+  "baselineLabels": [
+    "Actively poor",
+    "Weak",
+    "Mixed / marginal",
+    "Supportive",
+    "Strongly supportive"
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "rings": [
+    "body",
+    "reach",
+    "room",
+    "building",
+    "world"
+  ],
+  "radii": {
+    "body": [
+      0.0,
+      0.275
+    ],
+    "reach": [
+      0.275,
+      0.45
+    ],
+    "room": [
+      0.45,
+      0.56875
+    ],
+    "building": [
+      0.56875,
+      0.70625
+    ],
+    "world": [
+      0.70625,
+      0.86875
+    ]
+  },
+  "homeRing": {
+    "horizontal_space": "body",
+    "wet_core": "reach",
+    "acoustic_refuge": "reach",
+    "spatial_granularity": "room",
+    "sensory_compartmentalization": "room",
+    "climate_hvac": "room",
+    "functional_adjacency": "building",
+    "circulation_autonomy": "building",
+    "spatial_differentiation": "building",
+    "daylight_orientation": "world",
+    "exterior_permeability": "world",
+    "territorial_connectivity": "world",
+    "inspectability": "world"
+  },
+  "stepHeight": 0.4667,
+  "lighting": {
+    "daylightEdge": "daylight_orientation:temporal_orientation",
+    "outdoorEdge": "exterior_permeability:movement_recreation",
+    "nightEdge": "sensory_compartmentalization:sleep_rest",
+    "lightsOn": 6,
+    "lightsOff": 22,
+    "sunrise": 6.5,
+    "sunset": 19,
+    "outdoorStart": 13,
+    "fade": 0.25,
+    "lightsOutBelow": 0.2,
+    "windowByBaseline": [
+      "none",
+      "slit",
+      "window",
+      "window",
+      "large"
+    ],
+    "sunByBaseline": [
+      0,
+      0.35,
+      0.7,
+      0.8,
+      1
+    ],
+    "outdoorHoursByBaseline": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "nightLevelByBaseline": [
+      1,
+      1,
+      0.45,
+      0.04,
+      0.04
+    ],
+    "nightLevelUnmarked": 0.45,
+    "windows": {
+      "slit": {
+        "width": 0.109,
+        "height": 0.333,
+        "bars": 1,
+        "y": 0.85
+      },
+      "window": {
+        "width": 0.422,
+        "height": 0.307,
+        "bars": 5,
+        "y": 0.75
+      },
+      "large": {
+        "width": 0.612,
+        "height": 0.413,
+        "bars": 7,
+        "y": 0.72
+      }
+    }
+  }
+}

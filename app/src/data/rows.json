@@ -1,0 +1,93 @@
+[
+  {
+    "id": "spatial_granularity",
+    "label": "Spatial granularity",
+    "short": "Spatial granularity",
+    "description": "Ability to divide inhabitants into smaller social/spatial units rather than one large undifferentiated population.",
+    "phrase": "the architecture's ability to divide people into smaller units"
+  },
+  {
+    "id": "sensory_compartmentalization",
+    "label": "Sensory compartmentalization",
+    "short": "Sensory compart.",
+    "description": "Ability to keep sound, odor, moisture, light, conflict, and activity in one area from propagating throughout the environment.",
+    "phrase": "the containment of sound, light, odor, and activity within areas"
+  },
+  {
+    "id": "wet_core",
+    "label": "Wet-core / plumbing design",
+    "short": "Wet-core",
+    "description": "Adequacy, separation, drainage, ventilation, durability, and capacity of toilets, sinks, and showers.",
+    "phrase": "the sanitary architecture"
+  },
+  {
+    "id": "daylight_orientation",
+    "label": "Daylight & exterior orientation",
+    "short": "Daylight",
+    "description": "Access to natural light, visible day/night cues, sky, horizon, or other exterior temporal information.",
+    "phrase": "daylight and exterior cues"
+  },
+  {
+    "id": "exterior_permeability",
+    "label": "Exterior permeability",
+    "short": "Exterior access",
+    "description": "Practical access to outdoor air, sun, weather, recreation, and an environment beyond the enclosed interior.",
+    "phrase": "practical access to the outdoors"
+  },
+  {
+    "id": "acoustic_refuge",
+    "label": "Acoustic refuge",
+    "short": "Acoustic refuge",
+    "description": "Availability of spaces in which a person can escape or substantially reduce communal, mechanical, television, intercom, and impact noise.",
+    "phrase": "the availability of quieter refuge space"
+  },
+  {
+    "id": "functional_adjacency",
+    "label": "Functional adjacency",
+    "short": "Func. adjacency",
+    "description": "Whether sleeping, sanitation, dining, medical, legal, recreation, and other functions are appropriately separated yet practically reachable.",
+    "phrase": "the arrangement of functions \u2014 separated yet reachable"
+  },
+  {
+    "id": "circulation_autonomy",
+    "label": "Circulation autonomy",
+    "short": "Circulation",
+    "description": "Degree to which a person can move among permitted spaces without every transition requiring staff intervention, escort, search, or door release.",
+    "phrase": "the ability to move among permitted spaces without staff mediation"
+  },
+  {
+    "id": "climate_hvac",
+    "label": "Climate envelope / HVAC resilience",
+    "short": "Climate / HVAC",
+    "description": "Ability to maintain tolerable temperature, ventilation, humidity, and air quality as occupancy and weather change.",
+    "phrase": "the climate envelope and HVAC"
+  },
+  {
+    "id": "horizontal_space",
+    "label": "Horizontal space & sleep infrastructure",
+    "short": "Horizontal space",
+    "description": "Ability to provide each person with a stable place to lie down, sleep, store basic belongings, and remain out of circulation paths.",
+    "phrase": "the provision of a stable place to lie down"
+  },
+  {
+    "id": "territorial_connectivity",
+    "label": "Territorial connectivity",
+    "short": "Territorial conn.",
+    "description": "Architectural/logistical connection to hospitals, courts, lawyers, family visitation, transport, and other external services.",
+    "phrase": "the site's connection to outside services"
+  },
+  {
+    "id": "inspectability",
+    "label": "Inspectability / observational permeability",
+    "short": "Inspectability",
+    "description": "Ability of independent inspectors, attorneys, family, monitors, and other legitimate outsiders to observe conditions and communicate privately with inhabitants.",
+    "phrase": "the ability of legitimate outsiders to observe and communicate"
+  },
+  {
+    "id": "spatial_differentiation",
+    "label": "Spatial differentiation",
+    "short": "Spatial diff.",
+    "description": "Availability of genuinely different environments during the day: sleep space, dining space, outdoor space, medical space, legal space, recreation space, quiet space, etc.",
+    "phrase": "the availability of genuinely different environments"
+  }
+]

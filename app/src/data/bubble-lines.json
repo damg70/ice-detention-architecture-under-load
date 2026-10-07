@@ -1,0 +1,641 @@
+{
+  "status": "in use (approved 2026-10-04)",
+  "bands": "supportive covers supportive and resilient (E >= 0.6); mixed 0.4–0.6; substantial 0.2–0.4; severe < 0.2",
+  "phases": {
+    "morning": [
+      6,
+      12
+    ],
+    "afternoon": [
+      12,
+      18
+    ],
+    "evening": [
+      18,
+      22
+    ],
+    "night": [
+      22,
+      6
+    ]
+  },
+  "lines": {
+    "spatial_granularity:sleep_rest": {
+      "supportive": "I share this room with only a few others.",
+      "mixed": "Someone's always awake in here.",
+      "substantial": "One person wakes up and everyone does.",
+      "severe": "I sleep in a room with so many others."
+    },
+    "spatial_granularity:hygiene_privacy": {
+      "supportive": "I share a washroom with only a few others.",
+      "mixed": "There's usually a line for the shower.",
+      "substantial": "I share one shower with too many people.",
+      "severe": "Everyone here shares the same few toilets."
+    },
+    "spatial_granularity:sensory_regulation": {
+      "supportive": "It's a small group. I can think.",
+      "mixed": "There are always people around me.",
+      "substantial": "I'm never not surrounded by people.",
+      "severe": "There's no end to the crowd in here."
+    },
+    "spatial_granularity:medical_access": {
+      "supportive": "When someone's sick, they move them out.",
+      "mixed": "People get sick and stay in my room.",
+      "substantial": "Whatever someone has, I catch.",
+      "severe": "Half the room is coughing."
+    },
+    "spatial_granularity:safety_conflict": {
+      "supportive": "It's a small group. I know everyone.",
+      "mixed": "Arguments start fast in here.",
+      "substantial": "When a fight starts, there's nowhere to go.",
+      "severe": "Fights spread through the whole room."
+    },
+    "sensory_compartmentalization:sleep_rest": {
+      "supportive": "At night it's dark and quiet in here.",
+      "mixed": "Light from the hallway comes in all night.",
+      "substantial": "The noise from the dayroom never stops.",
+      "severe": "Lights and noise all night, every night."
+    },
+    "sensory_compartmentalization:hygiene_privacy": {
+      "supportive": "The bathroom is closed off from where I sleep.",
+      "mixed": "You can hear everything from the bathroom.",
+      "substantial": "The smell from the toilets fills the room.",
+      "severe": "Everyone can see and hear me on the toilet."
+    },
+    "sensory_compartmentalization:sensory_regulation": {
+      "supportive": "Sounds stay where they start.",
+      "mixed": "Every noise carries through the walls.",
+      "substantial": "Every smell and sound reaches me.",
+      "severe": "There's no escaping any of it, anywhere."
+    },
+    "sensory_compartmentalization:legal_social": {
+      "supportive": "I can make a call without being overheard.",
+      "mixed": "People can hear my calls.",
+      "substantial": "Everyone hears what I tell my lawyer.",
+      "severe": "There's no private place to say anything."
+    },
+    "sensory_compartmentalization:safety_conflict": {
+      "supportive": "When something happens, it stays over there.",
+      "mixed": "A fight across the room still reaches me.",
+      "substantial": "Trouble anywhere spreads to everyone.",
+      "severe": "One fight sets off the whole unit."
+    },
+    "wet_core:hygiene_privacy": {
+      "supportive": "I can shower when I need to.",
+      "mixed": "I wait a long time to shower.",
+      "substantial": "The toilet is broken again.",
+      "severe": "The toilets overflow. I can't wash."
+    },
+    "wet_core:food_water": {
+      "supportive": "There's clean water when I'm thirsty.",
+      "mixed": "The sink is the only water.",
+      "substantial": "The only water is from the sink over the toilet.",
+      "severe": "The water stops for hours at a time."
+    },
+    "wet_core:medical_access": {
+      "supportive": "It's clean enough not to get sick.",
+      "mixed": "People keep getting stomach bugs.",
+      "substantial": "Everyone's getting sick from the bathrooms.",
+      "severe": "The bathrooms are making me sick."
+    },
+    "wet_core:safety_conflict": {
+      "supportive": "No one fights over the bathroom.",
+      "mixed": "People argue in the bathroom line.",
+      "substantial": "The floor is always wet. People fall.",
+      "severe": "Fights start over the toilets."
+    },
+    "wet_core:agency_dignity": {
+      "supportive": "There's a door on the toilet.",
+      "mixed": "The toilet screen doesn't cover much.",
+      "substantial": "Anyone can see me on the toilet.",
+      "severe": "The toilet is in the open, in front of everyone."
+    },
+    "daylight_orientation:sleep_rest": {
+      "supportive": "I sleep when it gets dark.",
+      "mixed": "It's hard to tell when it's night.",
+      "substantial": "My sleep has no pattern anymore.",
+      "severe": "I sleep in the day and lie awake at night."
+    },
+    "daylight_orientation:sensory_regulation": {
+      "supportive": "The sun comes in the window.",
+      "mixed": "The light is always the same.",
+      "substantial": "Nothing but fluorescent light.",
+      "severe": "I haven't seen the sun since I got here."
+    },
+    "daylight_orientation:temporal_orientation": {
+      "supportive": "I can see what time of day it is.",
+      "mixed": "I lose track of the time.",
+      "substantial": "I don't know if it's morning or night.",
+      "severe": "I don't know what day it is."
+    },
+    "exterior_permeability:sensory_regulation": {
+      "supportive": "Outside, I can breathe for a while.",
+      "mixed": "I only get a little fresh air.",
+      "substantial": "I haven't breathed outside air since I came.",
+      "severe": "The same air, the same walls, every day."
+    },
+    "exterior_permeability:movement_recreation": {
+      "supportive": "I get time outside every day.",
+      "mixed": "Yard time is short.",
+      "substantial": "I barely go outside.",
+      "severe": "I never go outside."
+    },
+    "exterior_permeability:temporal_orientation": {
+      "supportive": "I can see the weather change.",
+      "mixed": "I only see the sky in the yard.",
+      "substantial": "I don't know if it's raining.",
+      "severe": "I don't know what season it is."
+    },
+    "acoustic_refuge:sleep_rest": {
+      "supportive": "There's somewhere quiet to rest.",
+      "mixed": "It's hard to sleep with the noise.",
+      "substantial": "The TV and the announcements never stop.",
+      "severe": "It's so loud in here. I can't sleep."
+    },
+    "acoustic_refuge:sensory_regulation": {
+      "supportive": "I can go somewhere quiet.",
+      "mixed": "There's nowhere really quiet.",
+      "substantial": "It's so loud in here.",
+      "severe": "The noise never stops."
+    },
+    "acoustic_refuge:legal_social": {
+      "supportive": "I can hear my lawyer on the phone.",
+      "mixed": "It's hard to hear on the phone.",
+      "substantial": "I can't hear my family over the noise.",
+      "severe": "I can't hear anything on the calls."
+    },
+    "functional_adjacency:sleep_rest": {
+      "supportive": "Where I sleep is away from everything.",
+      "mixed": "My bed is next to the bathroom.",
+      "substantial": "People walk past my bed all night.",
+      "severe": "I sleep where everyone eats, washes and walks."
+    },
+    "functional_adjacency:hygiene_privacy": {
+      "supportive": "The bathroom is close but separate.",
+      "mixed": "The bathroom is far from my bed.",
+      "substantial": "The toilet is right next to where I eat.",
+      "severe": "I eat and sleep beside the toilets."
+    },
+    "functional_adjacency:food_water": {
+      "supportive": [
+        "Three hot meals, at the same times every day.",
+        "The food comes hot, and there's enough of it.",
+        "I know when the next meal is coming."
+      ],
+      "mixed": [
+        "Meals come late, and they're often cold.",
+        "By the time it reaches me, the food is lukewarm.",
+        "The meal times keep slipping."
+      ],
+      "substantial": [
+        "Most days it's a sandwich and maybe some fruit.",
+        "It's a cold sandwich and a juice box.",
+        "The hot food runs out before it gets to me."
+      ],
+      "severe": [
+        "Sometimes I don't know when or what I'm going to eat.",
+        "The food ran out before it got to me.",
+        "Meals come whenever they come."
+      ]
+    },
+    "functional_adjacency:movement_recreation": {
+      "supportive": "The yard is right outside.",
+      "mixed": "Getting to the yard takes most of the time.",
+      "substantial": "The yard is so far I hardly go.",
+      "severe": "There is nowhere to go."
+    },
+    "functional_adjacency:medical_access": {
+      "supportive": "The clinic is just down the hall.",
+      "mixed": "The clinic is a long way from here.",
+      "substantial": "It takes hours to reach the clinic.",
+      "severe": "The clinic might as well be in another city."
+    },
+    "functional_adjacency:legal_social": {
+      "supportive": "The phones are close by.",
+      "mixed": "The phone room is across the building.",
+      "substantial": "Visits are so far away they get cancelled.",
+      "severe": "I can't get to a phone."
+    },
+    "circulation_autonomy:hygiene_privacy": {
+      "supportive": "I can use the bathroom when I need to.",
+      "mixed": "Sometimes I have to wait for the door.",
+      "substantial": "I have to ask a guard to use the bathroom.",
+      "severe": "I wait hours for someone to open the door."
+    },
+    "circulation_autonomy:movement_recreation": {
+      "supportive": "I can walk around the unit freely.",
+      "mixed": "Every door needs a guard.",
+      "substantial": "I can only move when they move me.",
+      "severe": "I don't leave this room on my own."
+    },
+    "circulation_autonomy:medical_access": {
+      "supportive": "I can ask to see the nurse and go.",
+      "mixed": "I put in a request to see the nurse.",
+      "substantial": "I asked for a doctor. I'm still waiting.",
+      "severe": "I keep asking. No one comes."
+    },
+    "circulation_autonomy:legal_social": {
+      "supportive": "I can get to the phone when I need it.",
+      "mixed": "I have to wait for an escort to call.",
+      "substantial": "I missed my lawyer's call waiting for a guard.",
+      "severe": "I can't reach a phone without permission."
+    },
+    "circulation_autonomy:agency_dignity": {
+      "supportive": "I can decide where to go in here.",
+      "mixed": "I have to ask for most things.",
+      "substantial": "I have to ask to do anything.",
+      "severe": "Every door, every step, I have to ask."
+    },
+    "climate_hvac:sleep_rest": {
+      "supportive": "It's warm enough to sleep.",
+      "mixed": "It's cold at night.",
+      "substantial": "It's freezing in here.",
+      "severe": "It's so cold I can't sleep."
+    },
+    "climate_hvac:sensory_regulation": {
+      "supportive": "The air feels fresh.",
+      "mixed": "The air is stuffy.",
+      "substantial": "It's hot and the air doesn't move.",
+      "severe": "The air is thick and hard to breathe."
+    },
+    "climate_hvac:medical_access": {
+      "supportive": "No one gets sick from the air.",
+      "mixed": "People keep coughing.",
+      "substantial": "Everyone is catching colds.",
+      "severe": "The heat is making people sick."
+    },
+    "horizontal_space:sleep_rest": {
+      "supportive": "I have a bed of my own.",
+      "mixed": "My bed is thin and hard.",
+      "substantial": "I sleep on a mat on the floor.",
+      "severe": "I haven't been able to lie down."
+    },
+    "horizontal_space:sensory_regulation": {
+      "supportive": "I have my own space to lie down.",
+      "mixed": "Someone is always right next to me.",
+      "substantial": "There's no space to be by myself.",
+      "severe": "I'm packed in. I can't get away from anyone."
+    },
+    "horizontal_space:safety_conflict": {
+      "supportive": "My bed and my things are safe.",
+      "mixed": "I sleep next to people I don't know.",
+      "substantial": "People step over me at night.",
+      "severe": "My things get taken while I sleep."
+    },
+    "horizontal_space:agency_dignity": {
+      "supportive": "I have a place that's mine.",
+      "mixed": "I keep everything in one small bag.",
+      "substantial": "Nothing here is mine.",
+      "severe": "I don't have a place to put anything."
+    },
+    "territorial_connectivity:medical_access": {
+      "supportive": "They can take me to a hospital quickly.",
+      "mixed": "The hospital is far away.",
+      "substantial": "The nearest hospital is hours from here.",
+      "severe": "There's no hospital anywhere near here."
+    },
+    "territorial_connectivity:legal_social": {
+      "supportive": "My lawyer can come see me.",
+      "mixed": "My family has to travel far to visit.",
+      "substantial": "My lawyer is hours away.",
+      "severe": "No one I know can get here."
+    },
+    "inspectability:legal_social": {
+      "supportive": "I can talk to my lawyer in private.",
+      "mixed": "Visits are short and watched.",
+      "substantial": "There's no private room to talk to my lawyer.",
+      "severe": "I haven't been able to talk to a lawyer."
+    },
+    "inspectability:safety_conflict": {
+      "supportive": "People from outside come and see how it is.",
+      "mixed": "Visitors only see part of this place.",
+      "substantial": "No one from outside sees what happens here.",
+      "severe": "No one outside knows what goes on in here."
+    },
+    "inspectability:agency_dignity": {
+      "supportive": "I can tell someone outside what's happening.",
+      "mixed": "It's hard to tell anyone what it's like.",
+      "substantial": "No one outside can hear me.",
+      "severe": "No one knows I'm here."
+    },
+    "spatial_differentiation:sleep_rest": {
+      "supportive": "Where I sleep is just for sleeping.",
+      "mixed": "I spend the whole day where I sleep.",
+      "substantial": "The bed is where everything happens.",
+      "severe": "I never leave the place I sleep."
+    },
+    "spatial_differentiation:sensory_regulation": {
+      "supportive": "I can go somewhere different during the day.",
+      "mixed": "Every room looks the same.",
+      "substantial": "It's the same room, all day, every day.",
+      "severe": "Nothing changes. Ever."
+    },
+    "spatial_differentiation:movement_recreation": {
+      "supportive": "There are different places to go.",
+      "mixed": "There's only one place to go.",
+      "substantial": "I walk in circles in the same room.",
+      "severe": "There's nowhere to walk."
+    },
+    "spatial_differentiation:temporal_orientation": {
+      "supportive": "Going to different rooms marks the day.",
+      "mixed": "The days blur together.",
+      "substantial": "Every hour is the same as the last.",
+      "severe": "I've lost count of the days."
+    },
+    "spatial_differentiation:agency_dignity": {
+      "supportive": "I can choose where to spend my day.",
+      "mixed": "There isn't much choice of where to be.",
+      "substantial": "I'm in the same place all day.",
+      "severe": "I have nowhere to go but here."
+    }
+  },
+  "when": {
+    "spatial_granularity:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "spatial_granularity:hygiene_privacy": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "spatial_granularity:sensory_regulation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "spatial_granularity:medical_access": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "spatial_granularity:safety_conflict": [
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "sensory_compartmentalization:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "sensory_compartmentalization:hygiene_privacy": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "sensory_compartmentalization:sensory_regulation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "sensory_compartmentalization:legal_social": [
+      "morning",
+      "afternoon"
+    ],
+    "sensory_compartmentalization:safety_conflict": [
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "wet_core:hygiene_privacy": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "wet_core:food_water": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "wet_core:medical_access": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "wet_core:safety_conflict": [
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "wet_core:agency_dignity": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "daylight_orientation:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "daylight_orientation:sensory_regulation": [
+      "morning",
+      "afternoon"
+    ],
+    "daylight_orientation:temporal_orientation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "exterior_permeability:sensory_regulation": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "exterior_permeability:movement_recreation": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "exterior_permeability:temporal_orientation": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "acoustic_refuge:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "acoustic_refuge:sensory_regulation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "acoustic_refuge:legal_social": [
+      "morning",
+      "afternoon"
+    ],
+    "functional_adjacency:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "functional_adjacency:hygiene_privacy": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "functional_adjacency:food_water": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "functional_adjacency:movement_recreation": [
+      "morning",
+      "afternoon"
+    ],
+    "functional_adjacency:medical_access": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "functional_adjacency:legal_social": [
+      "morning",
+      "afternoon"
+    ],
+    "circulation_autonomy:hygiene_privacy": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "circulation_autonomy:movement_recreation": [
+      "morning",
+      "afternoon"
+    ],
+    "circulation_autonomy:medical_access": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "circulation_autonomy:legal_social": [
+      "morning",
+      "afternoon"
+    ],
+    "circulation_autonomy:agency_dignity": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "climate_hvac:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "climate_hvac:sensory_regulation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "climate_hvac:medical_access": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "horizontal_space:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "horizontal_space:sensory_regulation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "horizontal_space:safety_conflict": [
+      "evening",
+      "night"
+    ],
+    "horizontal_space:agency_dignity": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "territorial_connectivity:medical_access": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "territorial_connectivity:legal_social": [
+      "morning",
+      "afternoon"
+    ],
+    "inspectability:legal_social": [
+      "morning",
+      "afternoon"
+    ],
+    "inspectability:safety_conflict": [
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "inspectability:agency_dignity": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ],
+    "spatial_differentiation:sleep_rest": [
+      "evening",
+      "night"
+    ],
+    "spatial_differentiation:sensory_regulation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "spatial_differentiation:movement_recreation": [
+      "morning",
+      "afternoon"
+    ],
+    "spatial_differentiation:temporal_orientation": [
+      "morning",
+      "afternoon",
+      "evening"
+    ],
+    "spatial_differentiation:agency_dignity": [
+      "morning",
+      "afternoon",
+      "evening",
+      "night"
+    ]
+  },
+  "night": {
+    "wet_core:hygiene_privacy": {
+      "mixed": "The toilet runs all night.",
+      "substantial": "The bathroom smell is worst at night.",
+      "severe": "The toilets back up during the night."
+    },
+    "circulation_autonomy:hygiene_privacy": {
+      "mixed": "At night I have to call for the door.",
+      "substantial": "At night no one comes to open the door.",
+      "severe": "At night I have to wait until morning."
+    },
+    "exterior_permeability:sensory_regulation": {
+      "supportive": "I can still smell the outside air on my clothes.",
+      "mixed": "I got a little fresh air today. Not enough.",
+      "substantial": "Another night breathing the same air.",
+      "severe": "The air never changes, not even at night."
+    },
+    "exterior_permeability:movement_recreation": {
+      "supportive": "I can walk around a little if I can't sleep.",
+      "mixed": "There's only room to pace a few steps.",
+      "substantial": "I lie still because there's nowhere to go.",
+      "severe": "I can't move from this spot until morning."
+    },
+    "exterior_permeability:temporal_orientation": {
+      "supportive": "I can tell what it's like outside at night.",
+      "mixed": "I wonder what the weather is like tonight.",
+      "substantial": "I can't tell what the weather is doing.",
+      "severe": "It's night, and I don't know what month it is."
+    }
+  }
+}
