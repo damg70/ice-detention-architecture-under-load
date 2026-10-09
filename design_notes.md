@@ -704,6 +704,12 @@ body) to select it.
   tomorrow, last week, "ago"). Habits within the stay ("every day",
   "most days", "since I got here") are fine: the duration slider sets
   the stay. Enforced by a test over every line and alternative.
+  **Rule (2026-10-09):** a line describes the relationship its cell
+  measures, not one building type's hardware (a cell door, a combination
+  sink over the toilet, a phone room, a hallway), because every archetype
+  speaks from the same library and the values alone decide what is said.
+  Found when the converted warehouse reached five such lines; they were
+  rewritten neutrally at the same severity.
 - **The bubble stays scoped to the opened capacity (decided 2026-10-06).**
   It never mixes in other capacities' lines to build a narrative. The
   stitching (meals that don't come, a fight across the room) happens in

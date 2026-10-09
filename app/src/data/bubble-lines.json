@@ -52,7 +52,7 @@
     },
     "sensory_compartmentalization:sleep_rest": {
       "supportive": "At night it's dark and quiet in here.",
-      "mixed": "Light from the hallway comes in all night.",
+      "mixed": "The lights in here never go fully off.",
       "substantial": "The noise from the dayroom never stops.",
       "severe": "Lights and noise all night, every night."
     },
@@ -89,7 +89,7 @@
     "wet_core:food_water": {
       "supportive": "There's clean water when I'm thirsty.",
       "mixed": "The sink is the only water.",
-      "substantial": "The only water is from the sink over the toilet.",
+      "substantial": "The only water is from the bathroom sinks.",
       "severe": "The water stops for hours at a time."
     },
     "wet_core:medical_access": {
@@ -212,14 +212,14 @@
     },
     "functional_adjacency:legal_social": {
       "supportive": "The phones are close by.",
-      "mixed": "The phone room is across the building.",
+      "mixed": "Getting to a legal visit takes most of the morning.",
       "substantial": "Visits are so far away they get cancelled.",
       "severe": "I can't get to a phone."
     },
     "circulation_autonomy:hygiene_privacy": {
       "supportive": "I can use the bathroom when I need to.",
       "mixed": "Sometimes I have to wait for the door.",
-      "substantial": "I have to ask a guard to use the bathroom.",
+      "substantial": "During count, no one can use the bathroom.",
       "severe": "I wait hours for someone to open the door."
     },
     "circulation_autonomy:movement_recreation": {
@@ -616,7 +616,7 @@
     },
     "circulation_autonomy:hygiene_privacy": {
       "mixed": "At night I have to call for the door.",
-      "substantial": "At night no one comes to open the door.",
+      "substantial": "At night they won't let anyone up to use the bathroom.",
       "severe": "At night I have to wait until morning."
     },
     "exterior_permeability:sensory_regulation": {
