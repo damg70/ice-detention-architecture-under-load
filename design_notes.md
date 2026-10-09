@@ -532,6 +532,7 @@ All of these values live in `person-config.json → lighting`.
 By archetype:
 - **Short-term holding:** windowless, never outside, lit all night.
 - **County jail, converted prison, soft-sided camp:** a slit.
+- **Converted warehouse:** windowless, 1 h of yard, lit all night.
 - **Purpose-built:** the barred window.
 - **Family campus:** the barred window, 3 h of yard, lights out.
 
@@ -751,11 +752,47 @@ The model moved to `model.html`; its title and an About link lead back.
 Sections: the question and the summary's opening lines; what this is (and
 isn't); four ways to look (one sentence per view); the idea (support as a
 moving margin, with a small chalkboard demand curve); where the numbers
-come from (an invitation to change them); start with a building (six
+come from (an invitation to change them); start with a building (seven
 archetype buttons, `model.html#start/<archetype>`, which open that
-archetype in the grid); credits (no repository link). Text is the
+archetype in the grid; a card left alone on the last row spans it); credits (no repository link). Text is the
 summary's, shortened in the same voice. The summary PDF is served from
 `app/docs/`.
+
+## Converted warehouse archetype (2026-10-09)
+
+The seventh archetype, `converted_warehouse`, follows reporting on ICE's
+plan to convert large distribution warehouses into detention sites. It
+sits next to the soft-sided camp, its nearest neighbour, and it is
+included because people who know the facility type from the news should
+find it here.
+
+- **One archetype, minimal fit-out.** Reports on the same building
+  describe very different interiors, from bunk rows under constant
+  surveillance to cellblocks with medical wings. The baselines assume the
+  minimal one: bunk rows divided by fencing, added restroom blocks, a
+  kitchen built into the shell with meals in a shared hall, a small fenced
+  yard. A heavier fit-out moves toward purpose-built detention, so it is
+  left to users to raise those cells, not given its own preset.
+- **Baselines in three groups.** The empty building (daylight, exterior,
+  acoustic refuge, sensory compartmentalization, granularity, climate,
+  wet core) is weak because of the walls, roof and mechanical systems,
+  and the fit-out can't fix it. The site (territorial connectivity,
+  inspectability) is weak because of where the buildings sit and who
+  controls them. The rest depends on the fit-out. Mean baseline 0.65 with
+  23 zeros, the lowest of the seven (short-term holding 0.83, soft-sided
+  camp 1.0). It scores above the camp on medical isolation (a planned
+  medical wing), on medical and legal adjacency (under one roof) and on
+  reaching a toilet without an escort (restroom blocks inside each
+  section).
+- **The plans' room list is not taken at face value.** ICE's planning
+  paper lists courtrooms, cafeterias, legal visitation, law libraries and
+  recreation space. Only courtrooms and legal visitation count toward the
+  legal cells; the law library is treated as unconfirmed.
+- **Suggested load:** 1440 h (about 60 days, the stated average for the
+  large-scale sites) at load ratio 1.0.
+- **Person view:** windowless, 1 h of yard, lit all night.
+- Reviewed cell by cell in a comment artifact. The research behind it
+  (`warehouse_detention_research.md` and the two source PDFs) stays local.
 
 ## Deployment (2026-10-06)
 

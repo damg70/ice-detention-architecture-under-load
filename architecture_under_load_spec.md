@@ -55,6 +55,7 @@ Different architectural types arrive with different histories:
 -   converted or reactivated prison;
 -   short-term office/processing holding space;
 -   soft-sided or rapidly deployable mass camp;
+-   converted warehouse;
 -   family/residential detention campus.
 
 These types encode different assumptions about duration, population,
@@ -723,8 +724,9 @@ Suggested presets:
 3.  Converted/reactivated prison
 4.  Short-term processing/holding space
 5.  Soft-sided mass camp
-6.  Family/residential campus
-7.  Blank model
+6.  Converted warehouse
+7.  Family/residential campus
+8.  Blank model
 
 Selecting a preset should:
 

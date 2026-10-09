@@ -278,6 +278,16 @@ test('person: lighting never moves with the load sliders', () => {
   assert.deepEqual(holding, { daylight: 0, outdoor: 0, night: 1 }, 'holding: windowless, no yard, lit all night');
 });
 
+test('converted warehouse: windowless, and the shell gives way at its own suggested load', () => {
+  const p = presets.find((x) => x.id === 'converted_warehouse');
+  assert.equal(person('converted_warehouse', 8, 0.7, 'wet_core').light.daylight, 0);
+  const { durationHours, loadRatio } = p.suggestedLoad;
+  const { n } = net('converted_warehouse', durationHours, loadRatio);
+  const shell = n.edges.filter((e) => /^(daylight_orientation|acoustic_refuge|sensory_compartmentalization):/.test(e.key));
+  assert.equal(shell.length, 11);
+  assert.ok(shell.every((e) => e.E < supportiveThreshold(config)), 'no shell edge stays supportive');
+});
+
 // ── Thought bubble ───────────────────────────────────────────────────────
 import { bubbleAt, ringBubbleAt, bandFor, phaseAt, pickLine, SLOT_HOURS, BUBBLE_SECONDS } from '../src/model/bubbles.js';
 const lib = load('bubble-lines.json');
