@@ -20,7 +20,7 @@ export function createGrid(container, { rows, columns, config, onSelect, onCycle
     el('span', { class: 'corner-row', text: 'Architectural capacity ↓' }));
   const headRow = el('tr', {}, corner);
   columns.forEach((c, j) => {
-    const th = el('th', { scope: 'col', class: 'col-head', title: c.label, 'data-c': j }, el('span', { text: c.label }));
+    const th = el('th', { scope: 'col', class: 'col-head', title: c.description, 'data-c': j }, el('span', { text: c.label }));
     colHeads.push(th);
     headRow.append(th);
   });

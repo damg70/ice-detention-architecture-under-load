@@ -43,6 +43,7 @@ export function createNetworkView(container, { rows, columns, config, onSelectNo
     const y = capY(i);
     const g = svgEl('g', { class: 'node capacity', tabindex: 0, role: 'button', 'data-node': `capacity:${r.id}` });
     g.append(
+      svgEl('title', {}, r.description),
       svgEl('rect', { class: 'hit', x: 20, y: y - ROW / 2, width: XL - 10, height: ROW }),
       svgEl('text', { class: 'label', x: XL - 16, y: y + 4, 'text-anchor': 'end' }, r.label),
       svgEl('circle', { class: 'dot', cx: XL, cy: y, r: 7 }),
@@ -54,6 +55,7 @@ export function createNetworkView(container, { rows, columns, config, onSelectNo
     const y = domY(j);
     const g = svgEl('g', { class: 'node domain', tabindex: 0, role: 'button', 'data-node': `domain:${c.id}` });
     g.append(
+      svgEl('title', {}, c.description),
       svgEl('rect', { class: 'hit', x: XR - 10, y: y - 16, width: W - XR, height: 32 }),
       svgEl('circle', { class: 'dot', cx: XR, cy: y, r: 7 }),
       svgEl('circle', { class: 'ring', cx: XR, cy: y, r: 12 }),

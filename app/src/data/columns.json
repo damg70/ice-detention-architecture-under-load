@@ -1,12 +1,12 @@
 [
-  { "id": "sleep_rest",           "label": "Sleep & rest",                 "short": "Sleep",     "phrase": "sleep and rest" },
-  { "id": "hygiene_privacy",      "label": "Hygiene & bodily privacy",     "short": "Hygiene",   "phrase": "washing, elimination, and bodily privacy" },
-  { "id": "food_water",           "label": "Food & water",                 "short": "Food",      "phrase": "access to food and water" },
-  { "id": "sensory_regulation",   "label": "Sensory regulation",           "short": "Sensory",   "phrase": "a person's ability to regulate sensory load" },
-  { "id": "movement_recreation",  "label": "Movement & recreation",        "short": "Movement",  "phrase": "movement and recreation" },
-  { "id": "medical_access",       "label": "Medical access",               "short": "Medical",   "phrase": "timely access to medical care" },
-  { "id": "legal_social",         "label": "Legal & social communication", "short": "Legal/soc.", "phrase": "legal and social communication" },
-  { "id": "temporal_orientation", "label": "Temporal orientation",         "short": "Temporal",  "phrase": "a person's ability to orient themselves in time" },
-  { "id": "safety_conflict",      "label": "Safety & conflict exposure",   "short": "Safety",    "phrase": "safety and freedom from conflict" },
-  { "id": "agency_dignity",       "label": "Agency & dignity",             "short": "Agency",    "phrase": "agency and dignity" }
+  { "id": "sleep_rest",           "label": "Sleep & rest",                 "short": "Sleep",     "phrase": "sleep and rest", "description": "Whether a person can sleep and rest for adequate, uninterrupted periods, in tolerable light, noise, temperature, and company." },
+  { "id": "hygiene_privacy",      "label": "Hygiene & bodily privacy",     "short": "Hygiene",   "phrase": "washing, elimination, and bodily privacy", "description": "Whether a person can use a toilet, wash, shower, and manage menstruation and other bodily needs promptly, cleanly, and without being watched." },
+  { "id": "food_water",           "label": "Food & water",                 "short": "Food",      "phrase": "access to food and water", "description": "Whether a person can get adequate, safe food and drinking water at predictable times, and eat somewhere separate from sleeping and sanitation." },
+  { "id": "sensory_regulation",   "label": "Sensory regulation",           "short": "Sensory",   "phrase": "a person's ability to regulate sensory load", "description": "Whether a person can find relief from noise, light, odor, crowding, and monotony, and recover from sensory overload." },
+  { "id": "movement_recreation",  "label": "Movement & recreation",        "short": "Movement",  "phrase": "movement and recreation", "description": "Whether a person can walk, exercise, go outdoors, and spend part of the day in activity rather than confinement." },
+  { "id": "medical_access",       "label": "Medical access",               "short": "Medical",   "phrase": "timely access to medical care", "description": "Whether a person can get timely medical, dental, and mental-health care, and be protected from illness spreading through the population." },
+  { "id": "legal_social",         "label": "Legal & social communication", "short": "Legal/soc.", "phrase": "legal and social communication", "description": "Whether a person can reach lawyers, courts, family, and others reliably and privately, by phone, video, or in person." },
+  { "id": "temporal_orientation", "label": "Temporal orientation",         "short": "Temporal",  "phrase": "a person's ability to orient themselves in time", "description": "Whether a person can keep track of the time of day, the days, the weather, and the seasons." },
+  { "id": "safety_conflict",      "label": "Safety & conflict exposure",   "short": "Safety",    "phrase": "safety and freedom from conflict", "description": "Whether a person is protected from violence, theft, and physical hazards, and can avoid or move away from conflict." },
+  { "id": "agency_dignity",       "label": "Agency & dignity",             "short": "Agency",    "phrase": "agency and dignity", "description": "Whether a person can make everyday choices, keep belongings and a place of their own, and keep some privacy and control over their day." }
 ]

@@ -409,3 +409,7 @@ test('scenario adjustments: tile sensitivities and model constants apply, saniti
   assert.equal(config.demandCeiling, 1.15);
   assert.ok(before > 0);
 });
+
+test('every capacity and lived domain has a hover description', () => {
+  for (const x of [...rows, ...columns]) assert.ok(typeof x.description === 'string' && x.description.length > 20, x.id);
+});
